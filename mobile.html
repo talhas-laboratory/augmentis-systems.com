@@ -26,16 +26,16 @@ name="twitter:description"
 content="Praxistaugliche KI-Werkzeuge für deutsche B2B-Unternehmen: zur Entlastung von Teams und für mehr operative Klarheit im Tagesgeschäft."/>
 <meta content="https://augmentis-systems.com/assets/social-preview.png" name="twitter:image"/>
 <link href="/favicon.ico" rel="icon" sizes="any"/>
-<link href="/assets/icons/favicon.svg" rel="icon" type="image/svg+xml"/>
-<link href="/assets/icons/apple-touch-icon.png" rel="apple-touch-icon"/>
-<link href="/site.webmanifest" rel="manifest"/>
-<link href="/assets/css/fonts.css" rel="stylesheet"/>
+<link href="assets/icons/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="assets/icons/apple-touch-icon.png" rel="apple-touch-icon"/>
+<link href="site.webmanifest" rel="manifest"/>
+<link href="assets/css/fonts.css" rel="stylesheet"/>
 <script>
         if (window.matchMedia && !window.matchMedia("(max-width: 767px)").matches) {
-            window.location.replace("/");
+            window.location.replace("index.html");
         }
     </script>
-<link href="/assets/css/tailwind-built.css" rel="stylesheet"/>
+<link href="assets/css/tailwind-built.css" rel="stylesheet"/>
 <style>
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
@@ -180,6 +180,63 @@ content="Praxistaugliche KI-Werkzeuge für deutsche B2B-Unternehmen: zur Entlast
         #mobile-nav-panel[data-state="open"] {
             transform: translateX(0);
             visibility: visible;
+        }
+
+        /* Contact Drawer (Glassmorphism) */
+        #contact-modal-backdrop {
+            z-index: 140;
+            transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.5s;
+        }
+        #contact-modal-backdrop[data-state="closed"] {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+        #contact-modal-backdrop[data-state="open"] {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+
+        #contact-modal-panel {
+            z-index: 145;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            isolation: isolate;
+            overflow: hidden;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.6s;
+            min-height: 100dvh;
+            height: 100vh;
+        }
+        #contact-modal-panel::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            background: linear-gradient(165deg, rgba(251, 249, 244, 0.44) 0%, rgba(246, 241, 231, 0.38) 100%);
+            backdrop-filter: blur(22px) saturate(138%);
+            -webkit-backdrop-filter: blur(22px) saturate(138%);
+        }
+        #contact-modal-panel[data-state="closed"] {
+            transform: translateX(100%);
+            visibility: hidden;
+        }
+        #contact-modal-panel[data-state="open"] {
+            transform: translateX(0);
+            visibility: visible;
+        }
+
+        .contact-form-container {
+            position: relative;
+            z-index: 1;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
         }
 
         #mobile-nav-button {
@@ -408,7 +465,7 @@ content="Praxistaugliche KI-Werkzeuge für deutsche B2B-Unternehmen: zur Entlast
 </div>
 <h2 class="text-3xl font-bold leading-tight mb-10">KlarOrder strukturiert eingehende Bestellungen, bevor daraus operative Arbeit wird.</h2>
 <div class="reveal-up img-reveal-container bg-surface-container-lowest rounded-md overflow-hidden shadow-2xl ghost-border mb-8">
-<img alt="KlarOrder Dashboard" class="image-reveal w-full h-auto" src="/assets/klarorder-dashboard.png"/>
+<img alt="KlarOrder Dashboard" class="image-reveal w-full h-auto" src="assets/klarorder-dashboard.png"/>
 <div class="p-6 space-y-5">
 <div class="flex gap-4">
 <span class="material-symbols-outlined text-primary-container text-3xl" data-icon="filter_alt">filter_alt</span>
@@ -427,7 +484,7 @@ content="Praxistaugliche KI-Werkzeuge für deutsche B2B-Unternehmen: zur Entlast
 </div>
 </div>
 <div class="reveal-up img-reveal-container bg-surface-container-lowest rounded-md overflow-hidden shadow-2xl ghost-border">
-<img alt="KlarOrder Review Interface" class="image-reveal w-full h-auto" src="/assets/klarorder-review.png"/>
+<img alt="KlarOrder Review Interface" class="image-reveal w-full h-auto" src="assets/klarorder-review.png"/>
 <div class="p-6">
 <div class="flex gap-4">
 <span class="material-symbols-outlined text-primary-container text-3xl" data-icon="rate_review">rate_review</span>
@@ -583,8 +640,8 @@ content="Praxistaugliche KI-Werkzeuge für deutsche B2B-Unternehmen: zur Entlast
 <div class="space-y-4">
 <p class="font-bold text-on-surface text-sm">Rechtliches</p>
 <ul class="space-y-3 text-sm text-[#757685]">
-<li><a class="hover:text-[#14171F] underline decoration-[#002FA7]" href="/impressum.html">Impressum</a></li>
-<li><a class="hover:text-[#14171F] underline decoration-[#002FA7]" href="/datenschutz.html">Datenschutz</a></li>
+<li><a class="hover:text-[#14171F] underline decoration-[#002FA7]" href="impressum.html">Impressum</a></li>
+<li><a class="hover:text-[#14171F] underline decoration-[#002FA7]" href="datenschutz.html">Datenschutz</a></li>
 </ul>
 </div>
 </div>
@@ -596,88 +653,103 @@ content="Praxistaugliche KI-Werkzeuge für deutsche B2B-Unternehmen: zur Entlast
 </div>
 </div>
 </footer>
-<div aria-hidden="true" aria-labelledby="contact-modal-mobile-title" class="fixed inset-0 z-[60] hidden items-end justify-center bg-[#14171F]/65 px-4 py-4 backdrop-blur-sm sm:items-center sm:py-6" data-modal-backdrop="" id="contact-modal-mobile" role="dialog">
-<div class="absolute inset-0" data-close-contact-modal=""></div>
-<div class="relative z-10 w-full max-w-md overflow-hidden rounded-lg bg-background shadow-2xl" data-modal-panel="">
-<div class="flex items-start justify-between gap-4 border-b border-outline-variant/40 px-5 py-5">
-<div>
-<p class="text-xs font-semibold uppercase tracking-[0.28em] text-primary-container">Kontakt</p>
-<h2 class="text-2xl font-extrabold text-on-surface" id="contact-modal-mobile-title">Lassen Sie uns sprechen</h2>
-<p class="mt-2 text-sm font-medium text-on-surface-variant">Unverbindlich. Kein Standard-Pitch.</p>
-</div>
-<button aria-label="Kontaktformular schließen" class="flex h-10 w-10 items-center justify-center rounded-sm bg-surface-container text-2xl text-on-surface" data-close-contact-modal="" type="button">
-                    ×
-                </button>
-</div>
-<form action="/api/contact" class="max-h-[calc(100vh-8rem)] overflow-y-auto bg-[#F0EEE9] px-5 py-5 space-y-4" data-contact-form="" method="post">
-<div class="space-y-1">
-<label class="text-xs font-bold uppercase tracking-wider text-on-surface-variant" for="contact-name-mobile">Name</label>
-<input class="w-full rounded-sm border border-outline-variant bg-white px-4 py-3 outline-none transition-all focus:border-transparent focus:ring-2 focus:ring-primary" id="contact-name-mobile" name="name" placeholder="Ihr Name" required="" type="text"/>
-</div>
-<div class="space-y-1">
-<label class="text-xs font-bold uppercase tracking-wider text-on-surface-variant" for="contact-email-mobile">E-Mail</label>
-<input class="w-full rounded-sm border border-outline-variant bg-white px-4 py-3 outline-none transition-all focus:border-transparent focus:ring-2 focus:ring-primary" id="contact-email-mobile" name="email" placeholder="ihre@email.de" required="" type="email"/>
-</div>
-<div class="space-y-1">
-<label class="text-xs font-bold uppercase tracking-wider text-on-surface-variant" for="contact-company-mobile">Unternehmen</label>
-<input class="w-full rounded-sm border border-outline-variant bg-white px-4 py-3 outline-none transition-all focus:border-transparent focus:ring-2 focus:ring-primary" id="contact-company-mobile" name="company" placeholder="Firmenname" required="" type="text"/>
-</div>
-<div class="sr-only">
-<label for="contact-website-mobile">Website</label>
-<input id="contact-website-mobile" name="website" tabindex="-1" type="text"/>
-</div>
-<div class="space-y-1">
-<label class="text-xs font-bold uppercase tracking-wider text-on-surface-variant" for="contact-message-mobile">Nachricht</label>
-<textarea class="min-h-[120px] w-full rounded-sm border border-outline-variant bg-white px-4 py-3 outline-none transition-all focus:border-transparent focus:ring-2 focus:ring-primary" id="contact-message-mobile" name="message" placeholder="Wie können wir Ihnen helfen?" required=""></textarea>
-</div>
-<button class="mt-4 w-full rounded-sm bg-[#002FA7] py-4 text-base font-bold text-white transition-all hover:bg-[#001e73] active:scale-[0.98]" data-contact-submit="" type="submit">Nachricht senden</button>
-<p class="text-xs text-on-surface-variant">Details zur Verarbeitung finden Sie im <a class="text-primary font-semibold" href="/datenschutz.html">Datenschutz</a>.</p>
-<p class="text-sm text-on-surface-variant" data-form-status="" aria-live="polite"></p>
-</form>
-</div>
+<div id="contact-modal-backdrop" data-state="closed" class="fixed inset-0" data-close-contact-modal=""></div>
+<div aria-hidden="true" aria-labelledby="contact-modal-mobile-title" id="contact-modal-panel" data-state="closed" role="dialog">
+    <div class="contact-form-container">
+        <div class="flex items-center justify-between px-6 py-4 border-b border-outline-variant/10">
+            <div class="text-xl font-bold tracking-tight text-[#14171F]">Kontakt</div>
+            <button aria-label="Kontaktformular schließen" class="p-2 -mr-2 text-on-surface-variant hover:text-on-surface" data-close-contact-modal="">
+                <span class="material-symbols-outlined text-3xl">close</span>
+            </button>
+        </div>
+        
+        <div class="p-8 flex-1">
+            <div class="mb-10">
+                <p class="text-xs font-semibold uppercase tracking-[0.28em] text-primary-container mb-2">Anfrage senden</p>
+                <h2 class="text-3xl font-extrabold text-on-surface" id="contact-modal-mobile-title">Lassen Sie uns sprechen</h2>
+                <p class="mt-3 text-sm font-medium text-on-surface-variant">Unverbindlich. Kein Standard-Pitch.</p>
+            </div>
+
+            <form action="/api/contact" class="space-y-6" data-contact-form="" method="post">
+                <div class="space-y-1.5">
+                    <label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant" for="contact-name-mobile">Name</label>
+                    <input class="w-full rounded-sm border border-outline-variant/30 bg-white/40 backdrop-blur-md px-4 py-4 outline-none transition-all focus:border-primary-container focus:ring-1 focus:ring-primary-container" id="contact-name-mobile" name="name" placeholder="Ihr Name" required="" type="text"/>
+                </div>
+                <div class="space-y-1.5">
+                    <label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant" for="contact-email-mobile">E-Mail</label>
+                    <input class="w-full rounded-sm border border-outline-variant/30 bg-white/40 backdrop-blur-md px-4 py-4 outline-none transition-all focus:border-primary-container focus:ring-1 focus:ring-primary-container" id="contact-email-mobile" name="email" placeholder="ihre@email.de" required="" type="email"/>
+                </div>
+                <div class="space-y-1.5">
+                    <label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant" for="contact-company-mobile">Unternehmen</label>
+                    <input class="w-full rounded-sm border border-outline-variant/30 bg-white/40 backdrop-blur-md px-4 py-4 outline-none transition-all focus:border-primary-container focus:ring-1 focus:ring-primary-container" id="contact-company-mobile" name="company" placeholder="Firmenname" required="" type="text"/>
+                </div>
+                <div class="sr-only">
+                    <label for="contact-website-mobile">Website</label>
+                    <input id="contact-website-mobile" name="website" tabindex="-1" type="text"/>
+                </div>
+                <div class="space-y-1.5">
+                    <label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant" for="contact-message-mobile">Nachricht</label>
+                    <textarea class="min-h-[140px] w-full rounded-sm border border-outline-variant/30 bg-white/40 backdrop-blur-md px-4 py-4 outline-none transition-all focus:border-primary-container focus:ring-1 focus:ring-primary-container" id="contact-message-mobile" name="message" placeholder="Wie können wir Ihnen helfen?" required=""></textarea>
+                </div>
+                
+                <div class="pt-4">
+                    <button class="w-full rounded-sm bg-[#002FA7] py-4 text-base font-bold text-white shadow-xl shadow-primary-container/20 transition-all hover:bg-[#001e73] active:scale-[0.98]" data-contact-submit="" type="submit">Nachricht senden</button>
+                    <p class="mt-4 text-[11px] text-on-surface-variant leading-relaxed">
+                        Details zur Verarbeitung finden Sie im <a class="text-primary font-semibold underline decoration-primary-container/30" href="/datenschutz.html">Datenschutz</a>.
+                    </p>
+                </div>
+                <p class="text-sm text-on-surface-variant font-medium" data-form-status="" aria-live="polite"></p>
+            </form>
+        </div>
+    </div>
 </div>
 <script>
         (() => {
-            const modal = document.querySelector('[data-modal-backdrop]');
-            if (!modal) return;
+            const backdrop = document.getElementById('contact-modal-backdrop');
+            const panel = document.getElementById('contact-modal-panel');
+            if (!backdrop || !panel) return;
 
-            const focusTarget = modal.querySelector('input, textarea');
             const openTriggers = document.querySelectorAll('[data-open-contact-modal]');
-            const closeTriggers = modal.querySelectorAll('[data-close-contact-modal]');
+            const closeTriggers = document.querySelectorAll('[data-close-contact-modal]');
             let lastActiveElement = null;
 
-            const isOpen = () => !modal.classList.contains('hidden');
+            const setModalState = (open) => {
+                const state = open ? 'open' : 'closed';
+                backdrop.setAttribute('data-state', state);
+                panel.setAttribute('data-state', state);
+                if (open) {
+                    document.body.classList.add('modal-open');
+                    panel.setAttribute('aria-hidden', 'false');
+                    setTimeout(() => panel.querySelector('input')?.focus(), 400);
+                } else {
+                    document.body.classList.remove('modal-open');
+                    panel.setAttribute('aria-hidden', 'true');
+                    if (lastActiveElement && typeof lastActiveElement.focus === 'function') {
+                        lastActiveElement.focus();
+                    }
+                }
+            };
 
             const openModal = (event) => {
                 if (event) event.preventDefault();
                 lastActiveElement = document.activeElement;
-                modal.classList.remove('hidden');
-                modal.classList.add('flex');
-                document.body.classList.add('modal-open');
-                window.requestAnimationFrame(() => focusTarget && focusTarget.focus());
+                setModalState(true);
             };
 
-            const closeModal = () => {
-                modal.classList.add('hidden');
-                modal.classList.remove('flex');
-                document.body.classList.remove('modal-open');
-                if (lastActiveElement && typeof lastActiveElement.focus === 'function') {
-                    lastActiveElement.focus();
-                }
-            };
+            const closeModal = () => setModalState(false);
 
             openTriggers.forEach((trigger) => trigger.addEventListener('click', openModal));
             closeTriggers.forEach((trigger) => trigger.addEventListener('click', closeModal));
 
             document.addEventListener('keydown', (event) => {
-                if (event.key === 'Escape' && isOpen()) {
+                if (event.key === 'Escape' && backdrop.getAttribute('data-state') === 'open') {
                     closeModal();
                 }
             });
         })();
     </script>
-    <script defer="" src="/assets/js/contact-form.js"></script>
-    <script defer="" src="/assets/js/mobile-menu.js"></script>
+    <script defer="" src="assets/js/contact-form.js"></script>
+    <script defer="" src="assets/js/mobile-menu.js"></script>
     <script>
         // Scroll Reveal System
         document.addEventListener("DOMContentLoaded", () => {
