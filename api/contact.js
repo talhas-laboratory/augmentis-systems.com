@@ -44,6 +44,15 @@ function escapeHtml(value) {
     .replaceAll("'", "&#39;");
 }
 
+function normalizeRecipientEmail(value) {
+  const fallback = "kontakt@augmentis-systems.com";
+  const normalized = normalizeField(value) || fallback;
+  if (normalized.toLowerCase() === "kontakt@augmentis-systems.de") {
+    return fallback;
+  }
+  return normalized;
+}
+
 module.exports = async function handler(req, res) {
   if (req.method !== "POST") {
     res.setHeader("Allow", "POST");
@@ -77,9 +86,8 @@ module.exports = async function handler(req, res) {
   }
 
   const apiKey = process.env.RESEND_API_KEY;
-  const toEmail = process.env.CONTACT_TO_EMAIL || "kontakt@augmentis-systems.com";
-  const fromEmail =
-    process.env.CONTACT_FROM_EMAIL || "no-reply@augmentis-systems.com";
+  const toEmail = normalizeRecipientEmail(process.env.CONTACT_TO_EMAIL);
+  const fromEmail = process.env.CONTACT_FROM_EMAIL || "no-reply@augmentis-systems.com";
   const siteUrl = process.env.SITE_URL || "https://augmentis-systems.com";
 
   if (!apiKey) {
@@ -94,17 +102,24 @@ module.exports = async function handler(req, res) {
   const safeCompany = escapeHtml(company);
   const safeMessage = escapeHtml(message).replaceAll("\n", "<br />");
 
+  const submittedAt = new Date().toISOString();
   const text = [
-    "Neue Kontaktanfrage über augmentis-systems.com",
+    "NEUE KONTAKTANFRAGE",
+    "===================",
     "",
-    `Name: ${name}`,
-    `E-Mail: ${email}`,
-    `Unternehmen: ${company}`,
+    "KONTAKT",
+    `- Name: ${name}`,
+    `- E-Mail: ${email}`,
+    `- Unternehmen: ${company}`,
+    "",
+    "METADATEN",
+    `- Empfänger: ${toEmail}`,
+    `- Website: ${siteUrl}`,
+    `- Eingegangen (UTC): ${submittedAt}`,
     "",
     "Nachricht:",
     message,
-    "",
-    `Website: ${siteUrl}`
+    ""
   ].join("\n");
 
   const response = await fetch(RESEND_ENDPOINT, {
@@ -120,13 +135,31 @@ module.exports = async function handler(req, res) {
       subject,
       text,
       html: `
-        <div style="font-family: Inter, Arial, sans-serif; color: #14171f; line-height: 1.5;">
-          <h1 style="font-size: 20px; margin-bottom: 16px;">Neue Kontaktanfrage</h1>
-          <p><strong>Name:</strong> ${safeName}</p>
-          <p><strong>E-Mail:</strong> ${safeEmail}</p>
-          <p><strong>Unternehmen:</strong> ${safeCompany}</p>
-          <p><strong>Nachricht:</strong><br />${safeMessage}</p>
-          <p style="margin-top: 24px; color: #697182;">Gesendet über ${escapeHtml(siteUrl)}</p>
+        <div style="font-family: Inter, Arial, sans-serif; color: #14171f; line-height: 1.5; max-width: 680px;">
+          <h1 style="font-size: 20px; margin: 0 0 14px 0;">Neue Kontaktanfrage</h1>
+          <table style="width: 100%; border-collapse: collapse; margin: 0 0 18px 0;">
+            <tbody>
+              <tr>
+                <td style="width: 170px; padding: 8px 10px; background: #f4f6fb; border: 1px solid #dce2f2;"><strong>Name</strong></td>
+                <td style="padding: 8px 10px; border: 1px solid #dce2f2;">${safeName}</td>
+              </tr>
+              <tr>
+                <td style="width: 170px; padding: 8px 10px; background: #f4f6fb; border: 1px solid #dce2f2;"><strong>E-Mail</strong></td>
+                <td style="padding: 8px 10px; border: 1px solid #dce2f2;">${safeEmail}</td>
+              </tr>
+              <tr>
+                <td style="width: 170px; padding: 8px 10px; background: #f4f6fb; border: 1px solid #dce2f2;"><strong>Unternehmen</strong></td>
+                <td style="padding: 8px 10px; border: 1px solid #dce2f2;">${safeCompany}</td>
+              </tr>
+              <tr>
+                <td style="width: 170px; padding: 8px 10px; background: #f4f6fb; border: 1px solid #dce2f2;"><strong>Eingegangen</strong></td>
+                <td style="padding: 8px 10px; border: 1px solid #dce2f2;">${escapeHtml(submittedAt)} (UTC)</td>
+              </tr>
+            </tbody>
+          </table>
+          <h2 style="font-size: 16px; margin: 0 0 8px 0;">Nachricht</h2>
+          <div style="padding: 12px 14px; border: 1px solid #dce2f2; background: #fbfcff; border-radius: 8px;">${safeMessage}</div>
+          <p style="margin-top: 20px; color: #697182; font-size: 13px;">Gesendet über ${escapeHtml(siteUrl)}</p>
         </div>
       `
     })

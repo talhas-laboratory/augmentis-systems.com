@@ -17,7 +17,7 @@ Egerstraße 27a
 Deutschland
 
 Telefon: 015757141876  
-E-Mail: kontakt@augmentis-systems.de
+E-Mail: kontakt@augmentis-systems.com
 
 ## 2. Allgemeine Hinweise zur Datenverarbeitung
 
@@ -248,4 +248,3 @@ Wir behalten uns vor, diese Datenschutzerklärung anzupassen, wenn dies aufgrund
 Es gilt die jeweils auf dieser Website veröffentlichte Fassung.
 
 Stand: 27.03.2026
-

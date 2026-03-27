@@ -1,33 +1,46 @@
 (function () {
-  const button = document.getElementById("mobile-nav-button");
+  const openButton = document.getElementById("mobile-nav-button");
   const panel = document.getElementById("mobile-nav-panel");
+  const backdrop = document.getElementById("mobile-nav-backdrop");
 
-  if (!button || !panel) return;
+  if (!openButton || !panel) return;
 
-  const closeMenu = function () {
-    panel.classList.add("hidden");
-    button.setAttribute("aria-expanded", "false");
+  const setMenuState = function (isOpen) {
+    const state = isOpen ? "open" : "closed";
+    panel.setAttribute("data-state", state);
+    if (backdrop) backdrop.setAttribute("data-state", state);
+    openButton.setAttribute("aria-expanded", String(isOpen));
+    openButton.setAttribute("aria-label", isOpen ? "Menü schließen" : "Menü öffnen");
+
+    if (isOpen) {
+      document.body.classList.add("modal-open");
+      document.body.classList.add("mobile-nav-open");
+    } else {
+      document.body.classList.remove("modal-open");
+      document.body.classList.remove("mobile-nav-open");
+    }
   };
 
-  button.addEventListener("click", function () {
-    const nextState = panel.classList.contains("hidden");
-    panel.classList.toggle("hidden", !nextState);
-    button.setAttribute("aria-expanded", String(nextState));
+  openButton.addEventListener("click", function () {
+    const isClosed = panel.getAttribute("data-state") !== "open";
+    setMenuState(isClosed);
   });
 
-  panel.querySelectorAll("a, button").forEach(function (item) {
-    item.addEventListener("click", closeMenu);
-  });
+  if (backdrop) {
+    backdrop.addEventListener("click", function () {
+      setMenuState(false);
+    });
+  }
 
-  document.addEventListener("click", function (event) {
-    if (!panel.contains(event.target) && !button.contains(event.target)) {
-      closeMenu();
-    }
+  panel.querySelectorAll("a, button[data-open-contact-modal], #mobile-menu-close").forEach(function (item) {
+    item.addEventListener("click", function () {
+      setMenuState(false);
+    });
   });
 
   document.addEventListener("keydown", function (event) {
-    if (event.key === "Escape") {
-      closeMenu();
+    if (event.key === "Escape" && panel.getAttribute("data-state") === "open") {
+      setMenuState(false);
     }
   });
 })();

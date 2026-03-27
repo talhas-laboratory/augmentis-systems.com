@@ -9,7 +9,7 @@ Egerstraße 27a
 Deutschland
 
 Telefon: 015757141876  
-E-Mail: kontakt@augmentis-systems.de
+E-Mail: kontakt@augmentis-systems.com
 
 **Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG:** DE461027899
 
@@ -19,4 +19,3 @@ E-Mail: kontakt@augmentis-systems.de
 Egerstraße 27a  
 63110 Rodgau  
 Deutschland
-
