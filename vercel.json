@@ -1,0 +1,73 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "functions": {
+    "api/contact.js": {
+      "regions": ["fra1"],
+      "maxDuration": 10
+    }
+  },
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.augmentis-systems.com"
+        }
+      ],
+      "destination": "https://augmentis-systems.com/$1",
+      "permanent": true
+    },
+    {
+      "source": "/augmentis_systems_desktop_with_contact_form",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/augmentis_systems_desktop_with_contact_form/:path*",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/augmentis_systems_mobile_with_contact_form",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/augmentis_systems_mobile_with_contact_form/:path*",
+      "destination": "/",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; img-src 'self' data:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; connect-src 'self' https://api.resend.com; font-src 'self' https://fonts.gstatic.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=()"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=63072000; includeSubDomains; preload"
+        }
+      ]
+    }
+  ]
+}

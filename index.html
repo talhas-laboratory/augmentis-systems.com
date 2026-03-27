@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="de">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Augmentis Systems | KI, die Menschen stärkt</title>
+    <meta
+        name="description"
+        content="Augmentis Systems entwickelt praxistaugliche KI-Werkzeuge für deutsche B2B-Unternehmen: zur Entlastung von Teams und für mehr operative Klarheit im Tagesgeschäft." />
+    <link rel="canonical" href="https://augmentis-systems.com/" />
+    <meta name="theme-color" content="#fbf9f4" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="de_DE" />
+    <meta property="og:site_name" content="Augmentis Systems" />
+    <meta property="og:title" content="Augmentis Systems | KI, die Menschen stärkt" />
+    <meta
+        property="og:description"
+        content="Praxistaugliche KI-Werkzeuge für deutsche B2B-Unternehmen: zur Entlastung von Teams und für mehr operative Klarheit im Tagesgeschäft." />
+    <meta property="og:url" content="https://augmentis-systems.com/" />
+    <meta property="og:image" content="https://augmentis-systems.com/assets/social-preview.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Augmentis Systems | KI, die Menschen stärkt" />
+    <meta
+        name="twitter:description"
+        content="Praxistaugliche KI-Werkzeuge für deutsche B2B-Unternehmen: zur Entlastung von Teams und für mehr operative Klarheit im Tagesgeschäft." />
+    <meta name="twitter:image" content="https://augmentis-systems.com/assets/social-preview.png" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/assets/icons/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "Organization",
+                    "name": "Augmentis Systems",
+                    "url": "https://augmentis-systems.com/",
+                    "email": "kontakt@augmentis-systems.com",
+                    "logo": "https://augmentis-systems.com/assets/icons/favicon.svg"
+                },
+                {
+                    "@type": "WebSite",
+                    "name": "Augmentis Systems",
+                    "url": "https://augmentis-systems.com/",
+                    "inLanguage": "de-DE"
+                }
+            ]
+        }
+    </script>
+    <script>
+        if (window.matchMedia && window.matchMedia("(max-width: 767px)").matches) {
+            window.location.replace("/mobile.html");
+        }
+    </script>
+    <link rel="stylesheet" href="/assets/css/tailwind-built.css" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        body.modal-open {
+            overflow: hidden;
+        }
+
+        .technical-gradient {
+            background: linear-gradient(145deg, #001e73 0%, #002fa7 100%);
+        }
+
+        .ghost-border {
+            border: 1px solid rgba(196, 197, 214, 0.2);
+        }
+
+        .nav-link {
+            position: relative;
+            padding-bottom: 0.35rem;
+            color: #757685;
+            transition: color 180ms ease;
+        }
+
+        .nav-link::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 2px;
+            background: #002fa7;
+            transform: scaleX(0.35);
+            transform-origin: left center;
+            opacity: 0;
+            transition: transform 180ms ease, opacity 180ms ease;
+        }
+
+        .nav-link:hover,
+        .nav-link:focus-visible {
+            color: #14171F;
+        }
+
+        .nav-link:hover::after,
+        .nav-link:focus-visible::after,
+        .nav-link:active::after {
+            transform: scaleX(1);
+            opacity: 1;
+        }
+
+        .nav-link:focus-visible {
+            outline: none;
+        }
+
+        .scroll-reveal-text {
+            background: linear-gradient(to right, #002FA7 var(--reveal-progress, 0%), #757685 var(--reveal-progress, 0%));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body class="bg-background text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
+    <!-- Navigation -->
+    <header class="bg-[#FBF9F4] sticky top-0 z-50">
+        <nav class="flex justify-between items-center w-full px-8 py-4 max-w-7xl mx-auto">
+            <div class="text-xl font-bold tracking-tight text-[#14171F]">Augmentis Systems</div>
+            <div class="hidden md:flex items-center gap-10">
+                <a class="nav-link label-md uppercase tracking-wider font-semibold" href="#">Unternehmen</a>
+                <a class="nav-link label-md uppercase tracking-wider font-semibold" href="#klarorder">KlarOrder</a>
+                <a class="nav-link label-md uppercase tracking-wider font-semibold" href="#kontakt">Kontakt</a>
+            </div>
+            <button aria-controls="contact-modal" aria-haspopup="dialog"
+                class="technical-gradient text-white px-6 py-3 rounded-sm font-semibold text-sm hover:scale-95 transition-all duration-200"
+                data-open-contact-modal="" type="button">
+                Gespräch anfragen
+            </button>
+        </nav>
+    </header>
+    <main>
+        <!-- Hero Section -->
+        <section class="relative pt-24 pb-32 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-16 items-center">
+                <div class="space-y-8">
+                    <h1 class="font-headline text-[3.5rem] font-extrabold leading-[1.1] tracking-tight text-on-surface">
+                        KI, die Menschen stärkt — <span class="text-primary-container">nicht ersetzt.</span>
+                    </h1>
+                    <p class="text-xl leading-relaxed text-on-surface-variant max-w-2xl">
+                        Augmentis Systems entwickelt praxistaugliche KI-Werkzeuge für deutsche B2B-Unternehmen: zur
+                        Entlastung von Teams und für mehr operative Klarheit im Tagesgeschäft.
+                    </p>
+                    <div class="flex gap-4 items-center">
+                        <button aria-controls="contact-modal" aria-haspopup="dialog"
+                            class="technical-gradient text-white px-8 py-4 rounded-sm font-semibold tracking-wide hover:shadow-lg transition-all"
+                            data-open-contact-modal="" type="button">
+                            Gespräch anfragen
+                        </button>
+                        <a class="relative group inline-block px-8 py-4 font-semibold text-on-surface-variant/80 hover:text-black transition-colors duration-300"
+                            href="#klarorder">
+                            Mehr erfahren
+                            <span class="absolute bottom-3 left-8 right-8 h-[2px] bg-[#002FA7] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+                        </a>
+                    </div>
+                </div>
+                <div class="relative w-full aspect-square max-w-lg mx-auto md:max-w-none md:aspect-auto md:h-[650px]">
+                    <canvas id="neural-canvas" class="absolute inset-0 w-full h-full cursor-grab active:cursor-grabbing"
+                        style="touch-action: none;"></canvas>
+                </div>
+            </div>
+        </section>
+        <!-- Prinzipien / Haltung -->
+        <section class="bg-surface-container py-24">
+            <div class="max-w-7xl mx-auto px-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div
+                        class="bg-surface-container-lowest p-10 rounded-md ghost-border flex flex-col h-full hover:bg-primary-container transition-all duration-300 group hover:shadow-2xl hover:-translate-y-1">
+                        <span
+                            class="material-symbols-outlined text-primary-container mb-6 text-4xl group-hover:text-white transition-colors">diversity_3</span>
+                        <h3 class="font-headline text-2xl font-bold mb-4 group-hover:text-white transition-colors">
+                            Menschen bleiben im Zentrum</h3>
+                        <p class="text-on-surface-variant leading-relaxed group-hover:text-white/80 transition-colors">
+                            Unsere Systeme sind Assistenten, keine Autopiloten. Wir geben Fachkräften ihre Zeit zurück,
+                            ohne ihnen die Kontrolle zu entziehen.</p>
+                    </div>
+                    <div
+                        class="bg-surface-container-lowest p-10 rounded-md ghost-border flex flex-col h-full hover:bg-primary-container transition-all duration-300 group hover:shadow-2xl hover:-translate-y-1">
+                        <span
+                            class="material-symbols-outlined text-primary-container mb-6 text-4xl group-hover:text-white transition-colors">precision_manufacturing</span>
+                        <h3 class="font-headline text-2xl font-bold mb-4 group-hover:text-white transition-colors">Für
+                            reale Abläufe gebaut</h3>
+                        <p class="text-on-surface-variant leading-relaxed group-hover:text-white/80 transition-colors">
+                            Keine abstrakten Spielereien. Wir lösen konkrete Probleme wie Medienbrüche und manuelle
+                            Datenpflege im Mittelstand.</p>
+                    </div>
+                    <div
+                        class="bg-surface-container-lowest p-10 rounded-md ghost-border flex flex-col h-full hover:bg-primary-container transition-all duration-300 group hover:shadow-2xl hover:-translate-y-1">
+                        <span
+                            class="material-symbols-outlined text-primary-container mb-6 text-4xl group-hover:text-white transition-colors">verified</span>
+                        <h3 class="font-headline text-2xl font-bold mb-4 group-hover:text-white transition-colors">
+                            Präzision vor Hype</h3>
+                        <p class="text-on-surface-variant leading-relaxed group-hover:text-white/80 transition-colors">
+                            Stabilität und Verlässlichkeit sind im B2B entscheidend. Wir setzen nur auf Technologien,
+                            die produktionsreif und sicher sind.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Value Proposition -->
+        <section class="bg-on-surface text-background py-24 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-8 relative">
+                <div class="max-w-3xl">
+                    <h2 class="font-headline text-5xl font-bold leading-tight mb-6">
+                        Augmentis Systems baut KI-Werkzeuge dort, wo operative Entlastung tatsächlich entsteht.
+                    </h2>
+                    <p class="text-xl opacity-70">Wir schauen tief in Ihre Prozesse, bevor wir die erste Zeile Code
+                        schreiben.</p>
+                </div>
+            </div>
+        </section>
+        <!-- Problemverständnis -->
+        <section class="py-32">
+            <div class="max-w-7xl mx-auto px-8 flex flex-col lg:flex-row gap-16 items-start">
+                <div class="lg:sticky lg:top-32 lg:w-1/2">
+                    <span class="text-primary-container label-md uppercase tracking-[0.2em] font-bold block mb-6">Unser
+                        erstes Produkt - KlarOrder</span>
+                    <h2 class="font-headline text-4xl font-extrabold leading-tight mb-8">
+                        Der Engpass ist selten fehlende Arbeit — sondern zu viel <span class="scroll-reveal-text">unnötige
+                            Routine</span> darin.
+                    </h2>
+                </div>
+                <div class="lg:w-1/2 space-y-12">
+                    <div class="space-y-6 text-lg text-on-surface-variant leading-relaxed">
+                        <p>
+                            Im Großhandel und in industriellen Zulieferbetrieben landen täglich hunderte Bestellungen
+                            per E-Mail, Fax oder Telefon. Jede einzelne muss händisch geprüft, Artikelnummern
+                            abgeglichen und ins ERP übertragen werden.
+                        </p>
+                        <p>
+                            Dieser Prozess ist fehleranfällig und bindet qualifizierte Mitarbeitende an Aufgaben, die
+                            keinen Mehrwert schaffen. Die Realität sind Medienbrüche, die das Tagesgeschäft verlangsamen
+                            und die operative Klarheit trüben.
+                        </p>
+                    </div>
+                    <div class="bg-surface-container-low p-8 rounded-md border-l-4 border-primary-container">
+                        <p class="italic text-on-surface font-medium">"Die Vorbereitung einer Bestellung dauert oft
+                            länger als die eigentliche fachliche Prüfung. Das ist verschwendete Expertise."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Produktbeweis KlarOrder -->
+        <section class="py-32 bg-surface-container-low" id="klarorder">
+            <div class="max-w-7xl mx-auto px-8">
+                <div class="mb-20">
+                    <h2 class="font-headline text-4xl font-extrabold max-w-2xl">KlarOrder strukturiert eingehende
+                        Bestellungen, bevor daraus operative Arbeit wird.</h2>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-24">
+                    <div class="bg-white rounded-md shadow-xl overflow-hidden ghost-border">
+                        <img alt="KlarOrder Dashboard" class="w-full h-auto"
+                            data-alt="Clean enterprise dashboard interface showing a list of pending orders being automatically categorized and parsed with confidence scores"
+                            src="/assets/klarorder-dashboard.png" />
+                    </div>
+                    <div class="space-y-8 pl-0 lg:pl-12">
+                        <div class="flex gap-6">
+                            <span class="material-symbols-outlined text-primary-container text-3xl">filter_alt</span>
+                            <div>
+                                <h4 class="font-bold text-xl mb-2">Automatisierte Triage</h4>
+                                <p class="text-on-surface-variant">E-Mails und Anhänge werden sofort analysiert, nach
+                                    Dringlichkeit sortiert und vorerfasst.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-6">
+                            <span class="material-symbols-outlined text-primary-container text-3xl">account_tree</span>
+                            <div>
+                                <h4 class="font-bold text-xl mb-2">ERP-Synchronisation</h4>
+                                <p class="text-on-surface-variant">Nahtloser Abgleich mit Ihren Bestandsdaten, ohne
+                                    manuelle Doppelerfassung.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="order-2 lg:order-1 space-y-8 pr-0 lg:pr-12">
+                        <div class="bg-surface-container-lowest p-8 rounded-md ghost-border">
+                            <h4 class="font-bold text-xl mb-4">Der menschliche Review-Step</h4>
+                            <p class="text-on-surface-variant leading-relaxed">
+                                KlarOrder markiert Unklarheiten gelb. Der Mensch blickt darauf, bestätigt mit einem
+                                Klick und das System lernt für das nächste Mal. Keine Blackbox-Entscheidungen.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="order-1 lg:order-2 bg-white rounded-md shadow-xl overflow-hidden ghost-border">
+                        <img alt="KlarOrder Review Interface" class="w-full h-auto"
+                            data-alt="Close up of a professional software review screen showing highlighted data fields for manual verification in a clean layout"
+                            src="/assets/klarorder-review.png" />
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Mittelstand-Passung -->
+        <section class="py-32">
+            <div class="max-w-7xl mx-auto px-8">
+                <h2 class="font-headline text-3xl font-extrabold text-center mb-20">Entwickelt für die Strukturen des
+                    Mittelstands</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                    <div class="text-center space-y-4">
+                        <div
+                            class="w-16 h-16 bg-surface-container rounded-sm flex items-center justify-center mx-auto text-primary-container">
+                            <span class="material-symbols-outlined text-3xl">verified_user</span>
+                        </div>
+                        <h4 class="font-bold text-xl">Verantwortung bleibt</h4>
+                        <p class="text-on-surface-variant">Technik nimmt Arbeit ab, aber der Mensch behält die finale
+                            Freigabe. Haftung und Kontrolle sind gewahrt.</p>
+                    </div>
+                    <div class="text-center space-y-4">
+                        <div
+                            class="w-16 h-16 bg-surface-container rounded-sm flex items-center justify-center mx-auto text-primary-container">
+                            <span class="material-symbols-outlined text-3xl">settings_input_component</span>
+                        </div>
+                        <h4 class="font-bold text-xl">Anschlussfähigkeit</h4>
+                        <p class="text-on-surface-variant">Wir integrieren uns in Ihre bestehende IT-Landschaft. Keine
+                            radikalen Umbrüche, sondern sinnvolle Ergänzung.</p>
+                    </div>
+                    <div class="text-center space-y-4">
+                        <div
+                            class="w-16 h-16 bg-surface-container rounded-sm flex items-center justify-center mx-auto text-primary-container">
+                            <span class="material-symbols-outlined text-3xl">person_celebrate</span>
+                        </div>
+                        <h4 class="font-bold text-xl">Gute Mitarbeitende entlasten</h4>
+                        <p class="text-on-surface-variant">Fachkräfte wandern ab, wenn sie sich mit trivialen Aufgaben
+                            langweilen. Wir schaffen Raum für echte Beratung.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Vertrauen / Compliance -->
+        <section class="bg-surface-container-low py-28">
+            <div class="max-w-7xl mx-auto px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-[0.92fr_1.08fr] gap-14 items-start">
+                    <div class="space-y-6 lg:sticky lg:top-28">
+                        <span
+                            class="text-primary-container label-md uppercase tracking-[0.22em] font-bold block">Vertrauen
+                            &amp; Compliance</span>
+                        <h2 class="font-headline text-4xl font-extrabold leading-tight">Compliance ist Teil der
+                            Systemlogik, nicht ein Hinweis im Kleingedruckten.</h2>
+                        <p class="text-lg leading-relaxed text-on-surface-variant">
+                            Gerade im Mittelstand darf KI keine neuen Haftungs-, Datenschutz- oder Kontrollrisiken
+                            erzeugen. Deshalb gestalten wir Systeme so, dass Verantwortlichkeiten sichtbar bleiben,
+                            Einführung prüfbar wird und der Mensch dort entscheidet, wo es relevant ist.
+                        </p>
+                        <div class="flex flex-wrap gap-3 py-2">
+                            <span
+                                class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary-container/10 text-primary-container text-sm font-bold uppercase tracking-wider">
+                                <span class="material-symbols-outlined text-base">lock</span> DSGVO-Konform
+                            </span>
+                            <span
+                                class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary-container/10 text-primary-container text-sm font-bold uppercase tracking-wider">
+                                <span class="material-symbols-outlined text-base">public</span> Made in Germany
+                            </span>
+                            <span
+                                class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary-container/10 text-primary-container text-sm font-bold uppercase tracking-wider">
+                                <span class="material-symbols-outlined text-base">shield_locked</span> Verschlüsselt
+                            </span>
+                        </div>
+                        <div class="bg-background border-l-4 border-primary-container px-6 py-5 rounded-sm">
+                            <p class="text-on-surface font-medium leading-relaxed">
+                                Seriöse Einführung zeigt sich nicht in großen Versprechen, sondern in klaren Rollen,
+                                sauberen Übergaben und bewusst erhaltener Kontrolle.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <article
+                            class="bg-background p-8 rounded-md ghost-border hover:bg-primary-container transition-all duration-300 group hover:shadow-2xl hover:-translate-y-1">
+                            <div class="flex items-start justify-between gap-4 mb-6">
+                                <span
+                                    class="text-xs uppercase tracking-[0.24em] font-bold text-primary-container group-hover:text-primary-fixed">01</span>
+                                <span
+                                    class="material-symbols-outlined text-primary-container text-3xl group-hover:text-white">verified_user</span>
+                            </div>
+                            <h3 class="font-headline text-2xl font-bold mb-3 group-hover:text-white transition-colors">
+                                Menschliche Freigabe bleibt bewusst erhalten</h3>
+                            <p
+                                class="text-on-surface-variant leading-relaxed group-hover:text-white/80 transition-colors">
+                                Wo Verantwortung, Prüfung oder Freigabe wichtig sind, bleibt der Mensch zentraler Teil
+                                des Ablaufs. Das System liefert Vorarbeit, nicht blinde Endentscheidungen.</p>
+                        </article>
+                        <article
+                            class="bg-background p-8 rounded-md ghost-border hover:bg-primary-container transition-all duration-300 group hover:shadow-2xl hover:-translate-y-1">
+                            <div class="flex items-start justify-between gap-4 mb-6">
+                                <span
+                                    class="text-xs uppercase tracking-[0.24em] font-bold text-primary-container group-hover:text-primary-fixed">02</span>
+                                <span
+                                    class="material-symbols-outlined text-primary-container text-3xl group-hover:text-white">dns</span>
+                            </div>
+                            <h3 class="font-headline text-2xl font-bold mb-3 group-hover:text-white transition-colors">
+                                Prüfbarkeit geht vor Blackbox-Eindruck</h3>
+                            <p
+                                class="text-on-surface-variant leading-relaxed group-hover:text-white/80 transition-colors">
+                                Übergaben werden so gestaltet, dass Teams nachvollziehen können, warum ein Vorgang
+                                vorbereitet wurde und wo noch Prüfbedarf besteht.</p>
+                        </article>
+                        <article
+                            class="bg-background p-8 rounded-md ghost-border hover:bg-primary-container transition-all duration-300 group hover:shadow-2xl hover:-translate-y-1">
+                            <div class="flex items-start justify-between gap-4 mb-6">
+                                <span
+                                    class="text-xs uppercase tracking-[0.24em] font-bold text-primary-container group-hover:text-primary-fixed">03</span>
+                                <span
+                                    class="material-symbols-outlined text-primary-container text-3xl group-hover:text-white">block</span>
+                            </div>
+                            <h3 class="font-headline text-2xl font-bold mb-3 group-hover:text-white transition-colors">
+                                Datenschutz wird früh mitgedacht</h3>
+                            <p
+                                class="text-on-surface-variant leading-relaxed group-hover:text-white/80 transition-colors">
+                                Relevante Datenflüsse, Empfänger und Kontaktwege werden vor produktivem Einsatz konkret
+                                beschrieben, damit Verantwortung nicht offen bleibt.</p>
+                        </article>
+                        <article
+                            class="bg-background p-8 rounded-md ghost-border hover:bg-primary-container transition-all duration-300 group hover:shadow-2xl hover:-translate-y-1">
+                            <div class="flex items-start justify-between gap-4 mb-6">
+                                <span
+                                    class="text-xs uppercase tracking-[0.24em] font-bold text-primary-container group-hover:text-primary-fixed">04</span>
+                                <span
+                                    class="material-symbols-outlined text-primary-container text-3xl group-hover:text-white">key</span>
+                            </div>
+                            <h3 class="font-headline text-2xl font-bold mb-3 group-hover:text-white transition-colors">
+                                Einführung mit Augenmaß statt Großprojekt</h3>
+                            <p
+                                class="text-on-surface-variant leading-relaxed group-hover:text-white/80 transition-colors">
+                                Vertrauen entsteht stärker über saubere Einführung als über große Worte. Wir arbeiten
+                                lieber an einem klar umrissenen Prozess als an unscharfer Kompletttransformation.</p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Einführung / Zusammenarbeit -->
+        <section class="bg-surface-container-high py-32">
+            <div class="max-w-7xl mx-auto px-8">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+                    <div class="max-w-xl">
+                        <h2 class="font-headline text-4xl font-extrabold mb-6">In drei Schritten zur operativen
+                            Entlastung</h2>
+                        <p class="text-on-surface-variant">Wir begleiten Sie von der ersten Analyse bis zum laufenden
+                            Betrieb.</p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="relative p-10 bg-surface-container-lowest rounded-md ghost-border group">
+                        <span
+                            class="text-5xl font-black text-primary-container/10 absolute top-4 right-8 select-none transition-colors duration-300 group-hover:text-[#002FA7]">01</span>
+                        <h3 class="font-bold text-xl mb-4 pt-4">Prozess identifizieren</h3>
+                        <p class="text-on-surface-variant">Wir finden die Routinen, die Ihre Teams am meisten bremsen
+                            und die höchste Fehlerquote haben.</p>
+                    </div>
+                    <div class="relative p-10 bg-surface-container-lowest rounded-md ghost-border group">
+                        <span
+                            class="text-5xl font-black text-primary-container/10 absolute top-4 right-8 select-none transition-colors duration-300 group-hover:text-[#002FA7]">02</span>
+                        <h3 class="font-bold text-xl mb-4 pt-4">Unterstützung integrieren</h3>
+                        <p class="text-on-surface-variant">Wir passen unsere Werkzeuge an Ihre spezifischen Datenformate
+                            und ERP-Logiken an.</p>
+                    </div>
+                    <div class="relative p-10 bg-surface-container-lowest rounded-md ghost-border group">
+                        <span
+                            class="text-5xl font-black text-primary-container/10 absolute top-4 right-8 select-none transition-colors duration-300 group-hover:text-[#002FA7]">03</span>
+                        <h3 class="font-bold text-xl mb-4 pt-4">Kontrolle erhalten</h3>
+                        <p class="text-on-surface-variant">Ihre Mitarbeitenden steuern das System. Die KI liefert die
+                            Vorarbeit, der Mensch die Qualitätssicherung.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- CTA Section -->
+        <section class="py-32">
+            <div class="max-w-7xl mx-auto px-8">
+                <div
+                    class="bg-primary-container rounded-lg p-12 md:p-20 text-center text-white relative overflow-hidden">
+                    <div
+                        class="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-md -translate-y-1/2 translate-x-1/2 blur-3xl">
+                    </div>
+                    <div class="relative z-10 max-w-3xl mx-auto space-y-10">
+                        <h2 class="font-headline text-4xl md:text-5xl font-extrabold leading-tight">
+                            Wenn Sie prüfen möchten, wo KI in Ihrem Unternehmen sinnvoll entlasten kann, sprechen wir
+                            gern mit Ihnen.
+                        </h2>
+                        <p class="text-xl text-primary-fixed-dim font-medium">
+                            Unverbindlich. Ohne Standard-Pitch.
+                        </p>
+                        <div class="pt-4">
+                            <a aria-controls="contact-modal" aria-haspopup="dialog"
+                                class="inline-block bg-white text-primary-container px-10 py-5 rounded-sm font-bold text-lg hover:scale-105 transition-transform duration-300 shadow-2xl"
+                                data-open-contact-modal="" href="#">
+                                Jetzt Erstgespräch vereinbaren
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-surface-container" id="kontakt">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-8 py-16 max-w-7xl mx-auto">
+            <div class="col-span-1 md:col-span-1">
+                <div class="text-lg font-black text-[#14171F] mb-6">Augmentis Systems</div>
+                <p class="text-sm text-on-surface-variant leading-relaxed">
+                    Software-Lösungen für den deutschen Mittelstand. Präzise, sicher und praxisnah.
+                </p>
+            </div>
+            <div class="space-y-4">
+                <div class="font-headline font-bold text-on-surface">Navigation</div>
+                <ul class="space-y-2 text-sm">
+                    <li><a class="text-[#757685] hover:text-[#14171F] underline decoration-[#002FA7] transition-all"
+                            href="#">Unternehmen</a></li>
+                    <li><a class="text-[#757685] hover:text-[#14171F] underline decoration-[#002FA7] transition-all"
+                            href="#klarorder">KlarOrder</a></li>
+                    <li><a class="text-[#757685] hover:text-[#14171F] underline decoration-[#002FA7] transition-all"
+                            href="#kontakt">Kontakt</a></li>
+                </ul>
+            </div>
+            <div class="space-y-4">
+                <div class="font-headline font-bold text-on-surface">Rechtliches</div>
+                <ul class="space-y-2 text-sm">
+                    <li><a class="text-[#757685] hover:text-[#14171F] underline decoration-[#002FA7] transition-all"
+                            href="/impressum.html">Impressum</a></li>
+                    <li><a class="text-[#757685] hover:text-[#14171F] underline decoration-[#002FA7] transition-all"
+                            href="/datenschutz.html">Datenschutz</a></li>
+                </ul>
+            </div>
+            <div class="space-y-4">
+                <div class="font-headline font-bold text-on-surface">Kontakt</div>
+                <div class="text-sm text-on-surface-variant">
+                    Augmentis Systems<br />
+                    Deutsche B2B-KI-Systeme<br /><br />
+                    <a class="text-primary-container font-medium"
+                        href="mailto:kontakt@augmentis-systems.com">kontakt@augmentis-systems.com</a>
+                </div>
+            </div>
+        </div>
+        <div
+            class="max-w-7xl mx-auto px-8 py-8 border-t border-[#C4C5D6]/20 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-on-surface-variant">
+            <span>© 2026 Augmentis Systems. Alle Rechte vorbehalten.</span>
+            <div class="flex gap-6">
+                <a class="hover:text-primary transition-colors" href="mailto:kontakt@augmentis-systems.com">E-Mail</a>
+                <a class="hover:text-primary transition-colors" href="/datenschutz.html">Datenschutz</a>
+            </div>
+        </div>
+    </footer>
+    <div aria-hidden="true" aria-labelledby="contact-modal-title"
+        class="fixed inset-0 z-[60] hidden items-center justify-center bg-[#14171F]/65 px-4 py-6 backdrop-blur-sm"
+        data-modal-backdrop="" id="contact-modal" role="dialog">
+        <div class="absolute inset-0" data-close-contact-modal=""></div>
+        <div class="relative z-10 w-full max-w-3xl overflow-hidden rounded-lg bg-background shadow-2xl"
+            data-modal-panel="">
+            <div class="flex items-start justify-between gap-6 border-b border-outline-variant/40 px-6 py-5 md:px-10">
+                <div>
+                    <p class="text-sm font-semibold uppercase tracking-[0.28em] text-primary-container">Kontakt</p>
+                    <h2 class="font-headline text-3xl font-extrabold text-on-surface" id="contact-modal-title">Lassen
+                        Sie uns über Ihren Prozess sprechen</h2>
+                    <p class="mt-2 text-on-surface-variant">Unverbindlich. Ohne Standard-Pitch. Mit Blick auf Ihren
+                        realen Ablauf.</p>
+                </div>
+                <button aria-label="Kontaktformular schließen"
+                    class="flex h-11 w-11 items-center justify-center rounded-sm bg-surface-container text-2xl text-on-surface transition-colors hover:bg-surface-container-highest"
+                    data-close-contact-modal="" type="button">
+                    ×
+                </button>
+            </div>
+            <form action="/api/contact" method="post" data-contact-form=""
+                class="max-h-[calc(100vh-12rem)] overflow-y-auto bg-surface-container-low px-6 py-6 md:px-10 md:py-8">
+                <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+                    <div class="space-y-2">
+                        <label class="block text-sm font-semibold uppercase tracking-wider text-on-surface-variant"
+                            for="contact-name-desktop">Name</label>
+                        <input
+                            class="w-full rounded-sm border-outline-variant bg-surface-container-lowest px-5 py-4 text-on-surface outline-none transition-all placeholder-outline/50 focus:border-primary-container focus:ring-1 focus:ring-primary-container"
+                            id="contact-name-desktop" name="name" placeholder="Ihr voller Name" required="" type="text" />
+                    </div>
+                    <div class="space-y-2">
+                        <label class="block text-sm font-semibold uppercase tracking-wider text-on-surface-variant"
+                            for="contact-email-desktop">E-Mail-Adresse</label>
+                        <input
+                            class="w-full rounded-sm border-outline-variant bg-surface-container-lowest px-5 py-4 text-on-surface outline-none transition-all placeholder-outline/50 focus:border-primary-container focus:ring-1 focus:ring-primary-container"
+                            id="contact-email-desktop" name="email" placeholder="name@unternehmen.de" required="" type="email" />
+                    </div>
+                </div>
+                <div class="mt-6 space-y-2">
+                    <label class="block text-sm font-semibold uppercase tracking-wider text-on-surface-variant"
+                        for="contact-company-desktop">Unternehmen</label>
+                    <input
+                        class="w-full rounded-sm border-outline-variant bg-surface-container-lowest px-5 py-4 text-on-surface outline-none transition-all placeholder-outline/50 focus:border-primary-container focus:ring-1 focus:ring-primary-container"
+                        id="contact-company-desktop" name="company" placeholder="Name Ihres Unternehmens" required="" type="text" />
+                </div>
+                <div class="sr-only">
+                    <label for="contact-website-desktop">Website</label>
+                    <input id="contact-website-desktop" name="website" tabindex="-1" type="text" />
+                </div>
+                <div class="mt-6 space-y-2">
+                    <label class="block text-sm font-semibold uppercase tracking-wider text-on-surface-variant"
+                        for="contact-message-desktop">Nachricht / Kommentar</label>
+                    <textarea
+                        class="min-h-[180px] w-full resize-none rounded-sm border-outline-variant bg-surface-container-lowest px-5 py-4 text-on-surface outline-none transition-all placeholder-outline/50 focus:border-primary-container focus:ring-1 focus:ring-primary-container"
+                        id="contact-message-desktop" name="message" placeholder="Beschreiben Sie kurz Ihre aktuelle Herausforderung..."
+                        required=""></textarea>
+                </div>
+                <div class="mt-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+                    <p class="text-sm font-medium text-on-surface-variant">Wir melden uns zeitnah bei Ihnen. Details finden Sie im <a class="text-primary-container" href="/datenschutz.html">Datenschutz</a>.</p>
+                    <button
+                        class="bg-[#002FA7] px-12 py-5 text-lg font-bold text-white transition-all duration-300 hover:-translate-y-[2px] hover:shadow-xl rounded-sm w-full md:w-auto"
+                        data-contact-submit="" type="submit">
+                        Gespräch anfragen
+                    </button>
+                </div>
+                <p class="mt-4 text-sm text-on-surface-variant" data-form-status="" aria-live="polite"></p>
+            </form>
+        </div>
+    </div>
+    <script>
+            (() => {
+                const modal = document.querySelector('[data-modal-backdrop]');
+                if (!modal) return;
+
+                const focusTarget = modal.querySelector('input, textarea');
+                const openTriggers = document.querySelectorAll('[data-open-contact-modal]');
+                const closeTriggers = modal.querySelectorAll('[data-close-contact-modal]');
+                let lastActiveElement = null;
+
+                const isOpen = () => !modal.classList.contains('hidden');
+
+                const openModal = (event) => {
+                    if (event) event.preventDefault();
+                    lastActiveElement = document.activeElement;
+                    modal.classList.remove('hidden');
+                    modal.classList.add('flex');
+                    document.body.classList.add('modal-open');
+                    window.requestAnimationFrame(() => focusTarget && focusTarget.focus());
+                };
+
+                const closeModal = () => {
+                    modal.classList.add('hidden');
+                    modal.classList.remove('flex');
+                    document.body.classList.remove('modal-open');
+                    if (lastActiveElement && typeof lastActiveElement.focus === 'function') {
+                        lastActiveElement.focus();
+                    }
+                };
+
+                openTriggers.forEach((trigger) => trigger.addEventListener('click', openModal));
+                closeTriggers.forEach((trigger) => trigger.addEventListener('click', closeModal));
+
+                document.addEventListener('keydown', (event) => {
+                    if (event.key === 'Escape' && isOpen()) {
+                        closeModal();
+                    }
+                });
+            })();
+    </script>
+    <script defer="" src="/assets/js/contact-form.js"></script>
+    <script>
+        // Neural Network Animation
+        (function () {
+            const canvas = document.getElementById('neural-canvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d', { alpha: true });
+
+            let width, height;
+            function resize() {
+                const dpr = window.devicePixelRatio || 1;
+                const rect = canvas.getBoundingClientRect();
+                width = rect.width;
+                height = rect.height;
+                canvas.width = width * dpr;
+                canvas.height = height * dpr;
+                ctx.scale(dpr, dpr);
+            }
+            window.addEventListener('resize', resize);
+            setTimeout(resize, 0);
+
+            const nodes = [];
+            const numNodes = 180;
+            const getRadius = () => Math.min(width, height) * 0.38;
+
+            for (let i = 0; i < numNodes; i++) {
+                const phi = Math.acos(1 - 2 * (i + 0.5) / numNodes);
+                const theta = Math.PI * (1 + Math.sqrt(5)) * (i + 0.5);
+                const noise = 0.8 + Math.random() * 0.4;
+                nodes.push({
+                    x: Math.cos(theta) * Math.sin(phi) * noise,
+                    y: Math.sin(theta) * Math.sin(phi) * (noise * 0.9),
+                    z: Math.cos(phi) * noise,
+                    pulseOffset: Math.random() * Math.PI * 2,
+                    baseRadius: 2.5 + Math.random() * 3.5
+                });
+            }
+
+            const signals = [];
+            let isDragging = false;
+            let dragStart = { x: 0, y: 0 };
+            let rotation = { x: 0.2, y: 0.5 };
+            let targetRotation = { x: 0.2, y: 0.5 };
+
+            canvas.addEventListener('pointerdown', (e) => {
+                isDragging = true;
+                dragStart.x = e.clientX;
+                dragStart.y = e.clientY;
+                canvas.style.cursor = 'grabbing';
+            });
+
+            window.addEventListener('pointermove', (e) => {
+                if (!isDragging) return;
+                const dx = e.clientX - dragStart.x;
+                const dy = e.clientY - dragStart.y;
+                targetRotation.y += dx * 0.008;
+                targetRotation.x += dy * 0.008;
+                dragStart.x = e.clientX;
+                dragStart.y = e.clientY;
+            });
+
+            window.addEventListener('pointerup', () => {
+                isDragging = false;
+                canvas.style.cursor = 'grab';
+            });
+            window.addEventListener('pointerleave', () => {
+                isDragging = false;
+                canvas.style.cursor = 'grab';
+            });
+
+            function rotateX(p, angle) {
+                const cos = Math.cos(angle), sin = Math.sin(angle);
+                return { x: p.x, y: p.y * cos - p.z * sin, z: p.y * sin + p.z * cos };
+            }
+            function rotateY(p, angle) {
+                const cos = Math.cos(angle), sin = Math.sin(angle);
+                return { x: p.x * cos + p.z * sin, y: p.y, z: -p.x * sin + p.z * cos };
+            }
+
+            let time = 0;
+
+            function draw() {
+                if (!width || !height) {
+                    requestAnimationFrame(draw);
+                    return;
+                }
+
+                ctx.clearRect(0, 0, width, height);
+                time += 0.03;
+                const rad = getRadius();
+
+                if (!isDragging) {
+                    targetRotation.y += 0.003;
+                    targetRotation.x += Math.sin(time * 0.5) * 0.001;
+                }
+
+                rotation.x += (targetRotation.x - rotation.x) * 0.1;
+                rotation.y += (targetRotation.y - rotation.y) * 0.1;
+
+                const transformedNodes = nodes.map(node => {
+                    let p = { x: node.x, y: node.y, z: node.z };
+                    p = rotateX(p, rotation.x);
+                    p = rotateY(p, rotation.y);
+
+                    const zOff = p.z + 2.5;
+                    const scale = 1.5 / zOff;
+                    const pulse = Math.sin(time * 2 + node.pulseOffset) * 0.3 + 0.8;
+
+                    return {
+                        ...node,
+                        px: width / 2 + p.x * rad * scale * 1.8,
+                        py: height / 2 + p.y * rad * scale * 1.8,
+                        pz: p.z,
+                        scale: scale,
+                        currentRadius: node.baseRadius * scale * pulse
+                    };
+                });
+
+                if (Math.random() < 0.2 && transformedNodes.length > 0) {
+                    const startIdx = Math.floor(Math.random() * transformedNodes.length);
+                    const start = transformedNodes[startIdx];
+                    let closest = -1;
+                    let minDist = Infinity;
+
+                    for (let i = 0; i < transformedNodes.length; i++) {
+                        if (i === startIdx) continue;
+                        const other = transformedNodes[i];
+                        const dist = Math.hypot(start.x - other.x, start.y - other.y, start.z - other.z);
+                        if (dist > 0.2 && dist < 0.8 && dist < minDist) {
+                            if (Math.random() > 0.4) {
+                                minDist = dist;
+                                closest = i;
+                            }
+                        }
+                    }
+                    if (closest !== -1) {
+                        signals.push({
+                            startIdx,
+                            endIdx: closest,
+                            progress: 0,
+                            speed: 0.03 + Math.random() * 0.04
+                        });
+                    }
+                }
+
+                ctx.lineWidth = 1.6;
+                const isDarkMode = document.documentElement.classList.contains('dark');
+                const r = isDarkMode ? 184 : 0;
+                const g = isDarkMode ? 196 : 47;
+                const b = isDarkMode ? 255 : 167;
+
+                for (let i = 0; i < transformedNodes.length; i++) {
+                    for (let j = i + 1; j < transformedNodes.length; j++) {
+                        const n1 = transformedNodes[i];
+                        const n2 = transformedNodes[j];
+                        const dist = Math.hypot(n1.x - n2.x, n1.y - n2.y, n1.z - n2.z);
+
+                        if (dist < 0.75) {
+                            const opacity = Math.max(0, 1 - dist / 0.75) * 0.5;
+                            const depthFade = Math.max(0.05, (n1.pz + n2.pz + 2) / 4);
+                            ctx.beginPath();
+                            ctx.moveTo(n1.px, n1.py);
+                            ctx.lineTo(n2.px, n2.py);
+                            ctx.strokeStyle = `rgba(${r}, ${g}, ${b}, ${opacity * depthFade})`;
+                            ctx.stroke();
+                        }
+                    }
+                }
+
+                for (let i = signals.length - 1; i >= 0; i--) {
+                    const sig = signals[i];
+                    sig.progress += sig.speed;
+
+                    if (sig.progress >= 1) {
+                        signals.splice(i, 1);
+                        continue;
+                    }
+
+                    const n1 = transformedNodes[sig.startIdx];
+                    const n2 = transformedNodes[sig.endIdx];
+
+                    const px = n1.px + (n2.px - n1.px) * sig.progress;
+                    const py = n1.py + (n2.py - n1.py) * sig.progress;
+                    const pz = n1.pz + (n2.pz - n1.pz) * sig.progress;
+
+                    const depthFade = Math.max(0.1, (pz + 1) / 2);
+
+                    ctx.beginPath();
+                    ctx.arc(px, py, 3.5 * depthFade, 0, Math.PI * 2);
+                    const fill = isDarkMode ? 'rgba(255, 255, 255, ' : 'rgba(0, 30, 115, ';
+                    ctx.fillStyle = `${fill}${depthFade})`;
+                    ctx.fill();
+                }
+
+                transformedNodes.sort((a, b) => a.pz - b.pz);
+
+                for (const node of transformedNodes) {
+                    ctx.beginPath();
+                    ctx.arc(node.px, node.py, node.currentRadius, 0, Math.PI * 2);
+                    const zNormalized = (node.pz + 1) / 2;
+                    const opacity = 0.4 + zNormalized * 0.6;
+                    ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${opacity})`;
+                    ctx.fill();
+                }
+
+                requestAnimationFrame(draw);
+            }
+
+            draw();
+        })();
+    </script>
+    <script>
+        // Scroll-linked text reveal effect
+        (function() {
+            const revealText = document.querySelector('.scroll-reveal-text');
+            if (!revealText) return;
+
+            const handleRevealScroll = () => {
+                const rect = revealText.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                
+                // Start filling when the text is 90% from the top (entering from bottom)
+                // Fully filled when the text is at 30% from the top
+                const start = windowHeight * 0.9;
+                const end = windowHeight * 0.3;
+                
+                const progress = Math.max(0, Math.min(1, (start - rect.top) / (start - end)));
+                revealText.style.setProperty('--reveal-progress', `${progress * 100}%`);
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        window.addEventListener('scroll', handleRevealScroll, { passive: true });
+                        handleRevealScroll(); // Initial check
+                    } else {
+                        window.removeEventListener('scroll', handleRevealScroll);
+                    }
+                });
+            }, { threshold: 0 });
+
+            observer.observe(revealText);
+        })();
+    </script>
+</body>
+
+</html>

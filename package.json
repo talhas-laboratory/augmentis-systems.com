@@ -1,0 +1,13 @@
+{
+  "name": "augmentis-systems-site",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "build": "npm run build:css",
+    "build:css": "tailwindcss -c tailwind.config.js -i ./assets/css/tailwind-source.css -o ./assets/css/tailwind-built.css --minify"
+  },
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.10",
+    "tailwindcss": "^3.4.17"
+  }
+}

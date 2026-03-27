@@ -1,0 +1,25 @@
+{
+  "name": "Augmentis Systems",
+  "short_name": "Augmentis",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f0eee9",
+  "theme_color": "#f0eee9",
+  "icons": [
+    {
+      "src": "/assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/icons/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
