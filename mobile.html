@@ -244,8 +244,10 @@ content="Praxistaugliche KI-Werkzeuge für deutsche B2B-Unternehmen: zur Entlast
         #mobile-nav-cta {
             position: absolute;
             left: 1.5rem;
-            bottom: 1.6rem;
-            width: clamp(16.5rem, calc(100vw - 3rem), 19rem);
+            right: 1.5rem;
+            bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px));
+            width: auto;
+            max-width: none;
             min-height: 3.5rem;
             display: inline-flex;
             align-items: center;
@@ -263,6 +265,7 @@ content="Praxistaugliche KI-Werkzeuge für deutsche B2B-Unternehmen: zur Entlast
             line-height: 1;
             box-shadow: 0 16px 34px rgba(0, 47, 167, 0.32);
             z-index: 1;
+            box-sizing: border-box;
         }
         #mobile-site-header {
             position: fixed;
@@ -398,7 +401,7 @@ content="Praxistaugliche KI-Werkzeuge für deutsche B2B-Unternehmen: zur Entlast
 <!-- 5. KlarOrder Product Feature -->
 <section class="py-24 px-6 bg-surface-container-low" id="klarorder">
 <div class="max-w-md mx-auto">
-<div class="flex items-center gap-2 mb-4 text-primary-container">
+<div class="flex items-center gap-2 mb-4 text-on-surface">
     <svg width="20" height="20" viewBox="0 0 128 128" class="w-5 h-5">
         <path d="M24 94L56 34h16l32 60H88l-7-14H47l-7 14H24zm29-27h22L64 45 53 67z" fill="currentColor"/>
     </svg>
