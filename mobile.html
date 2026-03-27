@@ -132,7 +132,7 @@ content="Praxistaugliche KI-Werkzeuge für deutsche B2B-Unternehmen: zur Entlast
         .delay-300 { transition-delay: 300ms; }
         .delay-400 { transition-delay: 400ms; }
         
-        /* Mobile Side Drawer (Glassmorphism) */
+        /* Mobile Navigation Overlay (Glassmorphism) */
         #mobile-nav-backdrop {
             z-index: 110;
             transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.5s;
@@ -174,11 +174,11 @@ content="Praxistaugliche KI-Werkzeuge für deutsche B2B-Unternehmen: zur Entlast
             -webkit-backdrop-filter: blur(22px) saturate(138%);
         }
         #mobile-nav-panel[data-state="closed"] {
-            transform: translateX(100%);
+            transform: translateY(-100%);
             visibility: hidden;
         }
         #mobile-nav-panel[data-state="open"] {
-            transform: translateX(0);
+            transform: translateY(0);
             visibility: visible;
         }
 
