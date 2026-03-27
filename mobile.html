@@ -246,10 +246,9 @@ content="Praxistaugliche KI-Werkzeuge für deutsche B2B-Unternehmen: zur Entlast
             left: 1.5rem;
             right: 1.5rem;
             bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px));
-            width: auto;
-            max-width: none;
+            width: calc(100% - 3rem);
             min-height: 3.5rem;
-            display: inline-flex;
+            display: flex;
             align-items: center;
             justify-content: center;
             padding: 0.9rem 1.35rem;
@@ -308,8 +307,8 @@ content="Praxistaugliche KI-Werkzeuge für deutsche B2B-Unternehmen: zur Entlast
 </head>
 <body class="bg-background text-on-surface antialiased">
 <!-- Header / Navigation -->
-<header class="bg-[#FBF9F4] dark:bg-[#14171F] flex justify-between items-center w-full px-6 py-4 fixed top-0 transition-colors duration-300" id="mobile-site-header">
-<div class="text-xl font-bold tracking-tight text-[#14171F] dark:text-[#FBF9F4]" id="mobile-site-logo">Augmentis Systems</div>
+<header class="bg-[#FBF9F4] flex justify-between items-center w-full px-6 py-4 fixed top-0 transition-colors duration-300" id="mobile-site-header">
+<div class="text-xl font-bold tracking-tight text-[#14171F]" id="mobile-site-logo">Augmentis Systems</div>
 <button aria-controls="mobile-nav-panel" aria-expanded="false" aria-label="Menü öffnen" class="md:hidden text-on-surface" id="mobile-nav-button" type="button">
 <span aria-hidden="true" class="burger-icon">
 <span></span><span></span><span></span>
@@ -566,10 +565,10 @@ content="Praxistaugliche KI-Werkzeuge für deutsche B2B-Unternehmen: zur Entlast
 </section>
 </main>
 <!-- Footer -->
-<footer class="bg-[#F0EEE9] dark:bg-[#14171F] py-16 px-6 border-t border-[#C4C5D6]/20" id="kontakt">
+<footer class="bg-[#F0EEE9] py-16 px-6 border-t border-[#C4C5D6]/20" id="kontakt">
 <div class="max-w-md mx-auto space-y-12">
 <div>
-<div class="text-lg font-black text-[#14171F] dark:text-[#FBF9F4] mb-6">Augmentis Systems</div>
+<div class="text-lg font-black text-[#14171F] mb-6">Augmentis Systems</div>
 <p class="text-[#757685] text-sm leading-relaxed">Software-Lösungen für den deutschen Mittelstand. Präzise, sicher und praxisnah.</p>
 </div>
 <div class="grid grid-cols-2 gap-8">
