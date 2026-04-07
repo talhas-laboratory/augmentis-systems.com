@@ -17,6 +17,7 @@
       event.preventDefault();
 
       const formData = new FormData(form);
+      const analytics = window.AugmentisAnalytics;
       const payload = {
         name: String(formData.get("name") || "").trim(),
         email: String(formData.get("email") || "").trim(),
@@ -24,6 +25,15 @@
         message: String(formData.get("message") || "").trim(),
         website: String(formData.get("website") || "").trim()
       };
+
+      if (
+        analytics &&
+        typeof analytics.getAttribution === "function" &&
+        typeof analytics.readConsent === "function" &&
+        analytics.readConsent() === "accepted"
+      ) {
+        payload.tracking = analytics.getAttribution();
+      }
 
       submitButton.disabled = true;
       submitButton.textContent = "Wird gesendet...";
@@ -47,6 +57,15 @@
         }
 
         form.reset();
+        if (analytics && typeof analytics.track === "function") {
+          analytics.track("Lead Submitted", {
+            form_variant:
+              form.dataset.formVariant ||
+              (typeof analytics.getPageVariant === "function"
+                ? analytics.getPageVariant()
+                : "")
+          });
+        }
         setStatus("Danke. Ihre Anfrage ist eingegangen. Wir melden uns zeitnah per E-Mail.", "#14532D");
       } catch (error) {
         setStatus(

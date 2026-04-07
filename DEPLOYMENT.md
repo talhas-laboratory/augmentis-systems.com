@@ -25,10 +25,12 @@ Siehe `.env.example`:
    `CONTACT_TO_EMAIL` sollte auf `talha@augmentis-systems.com` gesetzt werden.
 4. Die Domain `augmentis-systems.com` hinzufügen.
 5. `www.augmentis-systems.com` ebenfalls hinzufügen; der Redirect auf die Apex-Domain erfolgt über `vercel.json`.
-6. Nach dem ersten Deploy die Absenderdomain für Resend verifizieren, damit `CONTACT_FROM_EMAIL` zugestellt werden kann.
+6. In Plausible Analytics die Site `augmentis-systems.com` anlegen; die Website lädt Plausible erst nach Zustimmung im Consent-Banner. Danach werden Pageviews sowie die Events `Lead CTA Click` und `Lead Submitted` im Dashboard sichtbar.
+7. Nach dem ersten Deploy die Absenderdomain für Resend verifizieren, damit `CONTACT_FROM_EMAIL` zugestellt werden kann.
 
 ## Hinweise
 
 - Die Website benötigt keinen Framework-Build; Vercel serviert die statischen Dateien direkt, erzeugt aber vorab die lokale Tailwind-Datei über `npm run build`.
 - Die alten Desktop-/Mobile-Prototyp-Routen werden serverseitig auf `/` umgeleitet.
-- Wenn sich Hosting, Formularverarbeitung oder weitere Drittanbieter ändern, muss `datenschutz.html` mitgezogen werden.
+- Tracking-Parameter wie `utm_source`, `utm_medium` oder `utm_campaign` werden beim Absenden des Kontaktformulars in die Kontakt-E-Mail übernommen.
+- Wenn sich Hosting, Formularverarbeitung, Analytics oder weitere Drittanbieter ändern, muss `datenschutz.html` mitgezogen werden.

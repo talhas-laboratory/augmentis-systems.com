@@ -31,6 +31,7 @@
   <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png" />
   <link rel="manifest" href="site.webmanifest" />
   <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="assets/css/consent.css" />
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -65,9 +66,9 @@
           <p>
             Diese Datenschutzhinweise gelten für die aktuelle Website von Augmentis Systems. Sie
             beschreiben den tatsächlichen technischen Stand: eine statische Website mit Hosting
-            über Vercel, lokal ausgelieferten Assets und einem Kontaktformular, dessen Nachrichten
-            über einen serverseitigen Vercel-Endpunkt an Resend zur E-Mail-Zustellung übergeben
-            werden.
+            über Vercel, lokal ausgelieferten Assets, einer datensparsamen Webanalyse über
+            Plausible Analytics und einem Kontaktformular, dessen Nachrichten über einen
+            serverseitigen Vercel-Endpunkt an Resend zur E-Mail-Zustellung übergeben werden.
           </p>
         </div>
         <div class="legal-actions">
@@ -223,30 +224,46 @@
               lit. f DSGVO
             </p>
             <p>
-              Wir verwenden die übermittelten Formulardaten nicht für Newsletter, Marketing-Tracking
-              oder Profilbildung.
+              Die im Kontaktformular eingegebenen Inhalte verwenden wir nicht für Newsletter,
+              personalisierte Werbung oder Profilbildung. Soweit Sie der Analyse zugestimmt haben
+              und beim Absenden entsprechende Informationen vorhanden sind, können technische
+              Herkunftsdaten wie Landingpage, Referrer oder UTM-Parameter der Anfrage zugeordnet
+              werden, damit wir die Herkunft geschäftlicher Anfragen nachvollziehen können.
             </p>
           </section>
 
           <section class="legal-card" id="cookies">
             <h2>6. Cookies und ähnliche Technologien</h2>
             <p>
-              Diese Website ist auf einen datensparsamen Betrieb ohne Analyse-, Marketing- oder
-              Werbe-Tracking ausgelegt. Es werden keine externen Bildserver, keine externen
-              Schriftanbieter sowie keine Analyse- oder Werbeskripte eingebunden.
+              Diese Website verwendet Plausible Analytics, einen datensparsamen Webanalysedienst
+              der Plausible Insights OÜ, Västriku tn 2, 50403 Tartu, Estland. Der Dienst hilft uns
+              zu verstehen, welche Seiten aufgerufen werden, welche Herkunftskanäle Anfragen
+              auslösen und welche CTA- bzw. Formularereignisse auf der Website stattfinden.
             </p>
             <p>
-              Soweit technisch erforderliche Cookies oder vergleichbare Technologien eingesetzt
-              werden, geschieht dies ausschließlich, um die grundlegende Funktionsfähigkeit,
-              Sicherheit oder Stabilität der Website sicherzustellen. Eine Consent-Management-
-              Plattform für optionale Dienste wird aktuell nicht eingesetzt, weil über die Website
-              keine optionalen Tracking- oder Marketingdienste geladen werden.
+              Plausible ist von uns so eingebunden, dass nach Anbieterangaben keine Cookies gesetzt
+              und keine dauerhaften Identifier im Browser für die Analyse gespeichert werden. Die
+              Auswertung erfolgt in aggregierter Form; wir erstellen keine nutzerbezogenen
+              Bewegungsprofile und verknüpfen die Analysedaten nicht mit den Inhalten einzelner
+              Kontaktanfragen.
             </p>
             <p>
-              <strong>Rechtsgrundlage für die anschließende Datenverarbeitung:</strong> Art. 6 Abs.
-              1 lit. f DSGVO<br />
-              <strong>Rechtsgrundlage für den Zugriff auf Endgeräteinformationen:</strong> § 25 Abs.
-              2 TDDDG, soweit der Einsatz technisch unbedingt erforderlich ist.
+              Verarbeitet werden dabei insbesondere Informationen zur aufgerufenen Seite, zum
+              Referrer, zu Herkunftsparametern in der URL, zum verwendeten Browser bzw. Gerät sowie
+              zu Zeitpunkten und Ereignissen auf der Website.
+            </p>
+            <p>
+              Plausible wird erst geladen, nachdem Sie in das Analyse-Tracking eingewilligt haben.
+              Ihre Auswahl speichern wir lokal in Ihrem Browser, damit die Entscheidung bei
+              weiteren Seitenaufrufen berücksichtigt werden kann.
+            </p>
+            <p>
+              <strong>Rechtsgrundlage für die Analyse:</strong> Art. 6 Abs. 1 lit. a DSGVO sowie
+              § 25 Abs. 1 TDDDG, soweit für die Einwilligungsverwaltung oder die Analyse ein
+              Zugriff auf Ihr Endgerät erforderlich ist.<br />
+              <strong>Rechtsgrundlage für die Speicherung Ihrer Auswahl:</strong> Art. 6 Abs. 1
+              lit. f DSGVO sowie § 25 Abs. 2 TDDDG. Unser berechtigtes Interesse liegt darin, Ihre
+              Datenschutzentscheidung technisch zuverlässig zu respektieren.
             </p>
           </section>
 
@@ -261,6 +278,7 @@
             <ul>
               <li>Vercel, Inc. als Hosting- und Funktionsanbieter</li>
               <li>Plus Five Five, Inc. d/b/a Resend als E-Mail-Zustellungsdienst für Kontaktanfragen</li>
+              <li>Plausible Insights OÜ als Anbieter der Webanalyse</li>
               <li>gegebenenfalls weitere technische Unterauftragsverarbeiter der genannten Anbieter</li>
             </ul>
           </section>
@@ -377,6 +395,7 @@
     </div>
   </footer>
 
+  <script src="assets/js/analytics.js" defer></script>
   <script src="assets/js/site.js" defer></script>
 </body>
 </html>

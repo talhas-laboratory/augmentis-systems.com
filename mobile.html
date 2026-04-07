@@ -33,7 +33,10 @@ content="Praxistaugliche KI-Werkzeuge für deutsche B2B-Unternehmen: zur Entlast
 <link href="assets/css/consent.css" rel="stylesheet"/>
 <script>
         if (window.matchMedia && !window.matchMedia("(max-width: 767px)").matches) {
-            window.location.replace("index.html");
+            const destination = new URL("index.html", window.location.href);
+            destination.search = window.location.search;
+            destination.hash = window.location.hash;
+            window.location.replace(destination.toString());
         }
     </script>
 <link href="assets/css/tailwind-built.css" rel="stylesheet"/>
@@ -605,7 +608,7 @@ Verschlüsselt
 <section class="px-6 py-24 bg-background">
 <div class="scale-in max-w-md mx-auto bg-primary-container p-10 rounded-lg text-center shadow-sm text-white">
 <h2 class="text-3xl font-bold mb-6">Wenn Sie prüfen möchten, wo KI in Ihrem Unternehmen sinnvoll entlasten kann, sprechen wir gern mit Ihnen.</h2>
-<button aria-controls="contact-modal-mobile" aria-haspopup="dialog" class="bg-white text-primary-container w-full py-5 rounded-sm font-bold text-lg active:scale-95 transition-transform" data-open-contact-modal="" type="button">Jetzt Erstgespräch vereinbaren</button>
+<button aria-controls="contact-modal-mobile" aria-haspopup="dialog" class="bg-white text-primary-container w-full py-5 rounded-sm font-bold text-lg active:scale-95 transition-transform" data-open-contact-modal="" data-track-event="Lead CTA Click" data-track-label="Jetzt Erstgespraech vereinbaren" data-track-placement="primary-cta" type="button">Jetzt Erstgespräch vereinbaren</button>
 <p class="text-primary-fixed-dim font-medium mt-8">Kostenlos. Unverbindlich.</p>
 </div>
 </section>
@@ -659,7 +662,7 @@ Verschlüsselt
                 <p class="mt-3 text-sm font-medium text-on-surface-variant">Unverbindlich. Kein Standard-Pitch.</p>
             </div>
 
-            <form action="/api/contact" class="space-y-6" data-contact-form="" method="post">
+            <form action="/api/contact" class="space-y-6" data-contact-form="" data-form-variant="mobile" method="post">
                 <div class="space-y-1.5">
                     <label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant" for="contact-name-mobile">Name</label>
                     <input class="w-full rounded-sm border border-outline-variant/30 bg-white/40 backdrop-blur-md px-4 py-4 outline-none transition-all focus:border-primary-container focus:ring-1 focus:ring-primary-container" id="contact-name-mobile" name="name" placeholder="Ihr Name" required="" type="text"/>

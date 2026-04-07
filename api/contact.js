@@ -53,6 +53,39 @@ function normalizeRecipientEmail(value) {
   return normalized;
 }
 
+function normalizeTrackingFields(value) {
+  const source = value && typeof value === "object" ? value : {};
+  const tracking = {
+    pageVariant: normalizeField(source.pageVariant),
+    landingPath: normalizeField(source.landingPath),
+    referrer: normalizeField(source.referrer),
+    utmSource: normalizeField(source.utmSource),
+    utmMedium: normalizeField(source.utmMedium),
+    utmCampaign: normalizeField(source.utmCampaign),
+    utmContent: normalizeField(source.utmContent),
+    utmTerm: normalizeField(source.utmTerm),
+    gclid: normalizeField(source.gclid),
+    fbclid: normalizeField(source.fbclid),
+    msclkid: normalizeField(source.msclkid)
+  };
+
+  return Object.fromEntries(
+    Object.entries(tracking).filter(function (entry) {
+      return Boolean(entry[1]);
+    })
+  );
+}
+
+function resolveLandingUrl(siteUrl, landingPath) {
+  if (!landingPath) return "";
+
+  try {
+    return new URL(landingPath, siteUrl).toString();
+  } catch (_error) {
+    return landingPath;
+  }
+}
+
 module.exports = async function handler(req, res) {
   if (req.method !== "POST") {
     res.setHeader("Allow", "POST");
@@ -65,6 +98,7 @@ module.exports = async function handler(req, res) {
   const company = normalizeField(body.company);
   const message = normalizeField(body.message);
   const website = normalizeField(body.website);
+  const tracking = normalizeTrackingFields(body.tracking);
 
   if (website) {
     return json(res, 200, { ok: true });
@@ -101,12 +135,28 @@ module.exports = async function handler(req, res) {
   const safeEmail = escapeHtml(email);
   const safeCompany = escapeHtml(company);
   const safeMessage = escapeHtml(message).replaceAll("\n", "<br />");
+  const landingUrl = resolveLandingUrl(siteUrl, tracking.landingPath);
 
   const submittedAt = new Date().toISOString();
   const submittedAtLocal = new Date(submittedAt).toLocaleString("de-DE", {
     dateStyle: "medium",
     timeStyle: "short",
     timeZone: "Europe/Berlin"
+  });
+  const trackingEntries = [
+    ["Seitenvariante", tracking.pageVariant],
+    ["Landingpage", landingUrl || tracking.landingPath],
+    ["Referrer", tracking.referrer],
+    ["utm_source", tracking.utmSource],
+    ["utm_medium", tracking.utmMedium],
+    ["utm_campaign", tracking.utmCampaign],
+    ["utm_content", tracking.utmContent],
+    ["utm_term", tracking.utmTerm],
+    ["gclid", tracking.gclid],
+    ["fbclid", tracking.fbclid],
+    ["msclkid", tracking.msclkid]
+  ].filter(function (entry) {
+    return Boolean(entry[1]);
   });
   const text = [
     "NEUE KONTAKTANFRAGE",
@@ -122,12 +172,29 @@ module.exports = async function handler(req, res) {
     `Website: ${siteUrl}`,
     `Eingegangen (Berlin): ${submittedAtLocal}`,
     `Eingegangen (UTC): ${submittedAt}`,
+    ...(trackingEntries.length
+      ? ["", "ATTRIBUTION"].concat(
+          trackingEntries.map(function (entry) {
+            return `${entry[0]}: ${entry[1]}`;
+          })
+        )
+      : []),
     "",
     "NACHRICHT",
     "---------",
     message,
     ""
   ].join("\n");
+  const trackingRows = trackingEntries
+    .map(function (entry) {
+      return `
+                  <tr>
+                    <td style="width: 170px; padding: 10px 12px; background: #f4f6fb; border: 1px solid #dce2f2; border-top: none; font-weight: 700;">${escapeHtml(entry[0])}</td>
+                    <td style="padding: 10px 12px; border: 1px solid #dce2f2; border-left: none; border-top: none;">${escapeHtml(entry[1])}</td>
+                  </tr>
+      `;
+    })
+    .join("");
 
   const response = await fetch(RESEND_ENDPOINT, {
     method: "POST",
@@ -176,6 +243,7 @@ module.exports = async function handler(req, res) {
                       <a href="${escapeHtml(siteUrl)}" style="color: #002fa7; text-decoration: none;">${escapeHtml(siteUrl)}</a>
                     </td>
                   </tr>
+                  ${trackingRows}
                 </tbody>
               </table>
 
