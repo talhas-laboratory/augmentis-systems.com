@@ -31,6 +31,7 @@
     <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png" />
     <link rel="manifest" href="site.webmanifest" />
     <link rel="stylesheet" href="assets/css/fonts.css" />
+    <link rel="stylesheet" href="assets/css/consent.css" />
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -304,9 +305,9 @@
                 </div>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-24">
                     <div class="bg-white rounded-md shadow-xl overflow-hidden ghost-border">
-                        <img alt="KlarOrder Dashboard" class="w-full h-auto"
-                            data-alt="Clean enterprise dashboard interface showing a list of pending orders being automatically categorized and parsed with confidence scores"
-                            src="/assets/klarorder-dashboard.png" />
+                        <img alt="KlarOrder Eingangsliste mit priorisierten Aufträgen und vorbereiteten Positionen" class="w-full h-auto"
+                            data-alt="KlarOrder workspace showing prioritized incoming orders, email context, and prepared positions in one reviewable flow"
+                            src="assets/icons/klarorder_new_graphic1.png" />
                     </div>
                     <div class="space-y-8 pl-0 lg:pl-12">
                         <div class="flex gap-6">
@@ -320,9 +321,9 @@
                         <div class="flex gap-6">
                             <span class="material-symbols-outlined text-primary-container text-3xl">account_tree</span>
                             <div>
-                                <h4 class="font-bold text-xl mb-2">ERP-Synchronisation</h4>
-                                <p class="text-on-surface-variant">Nahtloser Abgleich mit Ihren Bestandsdaten, ohne
-                                    manuelle Doppelerfassung.</p>
+                                <h4 class="font-bold text-xl mb-2">Prüfbarer Entwurf statt ERP-Writeback</h4>
+                                <p class="text-on-surface-variant">KlarOrder führt E-Mail, Positionen und Prüfung in
+                                    einen freigabefähigen Entwurf über, statt ungeprüft direkt ins ERP zu schreiben.</p>
                             </div>
                         </div>
                     </div>
@@ -339,11 +340,21 @@
                                 </p>
                             </div>
                         </div>
+                        <div class="flex gap-6">
+                            <span class="material-symbols-outlined text-primary-container text-3xl">content_copy</span>
+                            <div>
+                                <h4 class="font-bold text-xl mb-2">Copy-Block und CSV für den nächsten Schritt</h4>
+                                <p class="text-on-surface-variant leading-relaxed">
+                                    Freigegebene Positionen lassen sich kontrolliert als Copy-Block oder CSV
+                                    übergeben, damit der bestehende Innendienst-Ablauf sauber weiterläuft.
+                                </p>
+                            </div>
+                        </div>
                     </div>
                     <div class="order-1 lg:order-2 bg-white rounded-md shadow-xl overflow-hidden ghost-border">
-                        <img alt="KlarOrder Review Interface" class="w-full h-auto"
-                            data-alt="Close up of a professional software review screen showing highlighted data fields for manual verification in a clean layout"
-                            src="/assets/klarorder-review.png" />
+                        <img alt="KlarOrder Positionsprüfung mit Freigaben, Zusammenfassung und Export-Aktionen" class="w-full h-auto"
+                            data-alt="KlarOrder positions review showing approvals, summary panel, and copy block or CSV export actions"
+                            src="assets/icons/klarorder_new_graphic2.png" />
                     </div>
                 </div>
             </div>
@@ -666,6 +677,7 @@
             </form>
         </div>
     </div>
+    <script defer src="assets/js/analytics.js"></script>
     <script>
             (() => {
                 const modal = document.querySelector('[data-modal-backdrop]');

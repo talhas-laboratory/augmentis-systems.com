@@ -30,6 +30,7 @@ content="Praxistaugliche KI-Werkzeuge für deutsche B2B-Unternehmen: zur Entlast
 <link href="assets/icons/apple-touch-icon.png" rel="apple-touch-icon"/>
 <link href="site.webmanifest" rel="manifest"/>
 <link href="assets/css/fonts.css" rel="stylesheet"/>
+<link href="assets/css/consent.css" rel="stylesheet"/>
 <script>
         if (window.matchMedia && !window.matchMedia("(max-width: 767px)").matches) {
             window.location.replace("index.html");
@@ -432,7 +433,7 @@ content="Praxistaugliche KI-Werkzeuge für deutsche B2B-Unternehmen: zur Entlast
 <div class="max-w-md mx-auto">
 <h2 class="text-3xl font-bold leading-tight mb-10">KlarOrder strukturiert eingehende Bestellungen, bevor daraus operative Arbeit wird.</h2>
 <div class="reveal-up img-reveal-container bg-surface-container-lowest rounded-md overflow-hidden shadow-2xl ghost-border mb-8">
-<img alt="KlarOrder Dashboard" class="image-reveal w-full h-auto" src="assets/klarorder-dashboard.png"/>
+<img alt="KlarOrder Eingangsliste mit priorisierten Aufträgen und vorbereiteten Positionen" class="image-reveal w-full h-auto" src="assets/icons/klarorder_new_graphic1.png"/>
 <div class="p-6 space-y-5">
 <div class="flex gap-4">
 <span class="material-symbols-outlined text-primary-container text-3xl" data-icon="filter_alt">filter_alt</span>
@@ -444,20 +445,27 @@ content="Praxistaugliche KI-Werkzeuge für deutsche B2B-Unternehmen: zur Entlast
 <div class="flex gap-4">
 <span class="material-symbols-outlined text-primary-container text-3xl" data-icon="account_tree">account_tree</span>
 <div>
-<h4 class="font-bold text-lg mb-1">ERP-Synchronisation</h4>
-<p class="text-on-surface-variant text-sm leading-relaxed">Nahtloser Abgleich mit Ihren Bestandsdaten, ohne manuelle Doppelerfassung.</p>
+<h4 class="font-bold text-lg mb-1">Prüfbarer Entwurf statt ERP-Writeback</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">KlarOrder führt E-Mail, Positionen und Prüfung in einen freigabefähigen Entwurf über, statt ungeprüft direkt ins ERP zu schreiben.</p>
 </div>
 </div>
 </div>
 </div>
 <div class="reveal-up img-reveal-container bg-surface-container-lowest rounded-md overflow-hidden shadow-2xl ghost-border">
-<img alt="KlarOrder Review Interface" class="image-reveal w-full h-auto" src="assets/klarorder-review.png"/>
-<div class="p-6">
+<img alt="KlarOrder Positionsprüfung mit Freigaben, Zusammenfassung und Export-Aktionen" class="image-reveal w-full h-auto" src="assets/icons/klarorder_new_graphic2.png"/>
+<div class="p-6 space-y-5">
 <div class="flex gap-4">
 <span class="material-symbols-outlined text-primary-container text-3xl" data-icon="rate_review">rate_review</span>
 <div>
 <h4 class="font-bold text-lg mb-1">Der menschliche Review-Step</h4>
 <p class="text-on-surface-variant text-sm leading-relaxed">KlarOrder markiert Unklarheiten gelb. Der Mensch blickt darauf, bestätigt mit einem Klick und das System lernt.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-primary-container text-3xl" data-icon="content_copy">content_copy</span>
+<div>
+<h4 class="font-bold text-lg mb-1">Copy-Block und CSV für den nächsten Schritt</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">Freigegebene Positionen lassen sich kontrolliert als Copy-Block oder CSV übergeben, damit der bestehende Innendienst-Ablauf sauber weiterläuft.</p>
 </div>
 </div>
 </div>
@@ -715,6 +723,7 @@ content="Praxistaugliche KI-Werkzeuge für deutsche B2B-Unternehmen: zur Entlast
             });
         })();
     </script>
+    <script defer="" src="assets/js/analytics.js"></script>
     <script defer="" src="assets/js/contact-form.js"></script>
     <script defer="" src="assets/js/mobile-menu.js"></script>
     <script>
