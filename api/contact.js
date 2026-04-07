@@ -45,7 +45,7 @@ function escapeHtml(value) {
 }
 
 function normalizeRecipientEmail(value) {
-  const fallback = "kontakt@augmentis-systems.com";
+  const fallback = "talha@augmentis-systems.com";
   const normalized = normalizeField(value) || fallback;
   if (normalized.toLowerCase() === "kontakt@augmentis-systems.de") {
     return fallback;
@@ -96,28 +96,35 @@ module.exports = async function handler(req, res) {
     });
   }
 
-  const subject = `Neue Anfrage über augmentis-systems.com von ${name}`;
+  const subject = `Neue Kontaktanfrage: ${name} · ${company}`;
   const safeName = escapeHtml(name);
   const safeEmail = escapeHtml(email);
   const safeCompany = escapeHtml(company);
   const safeMessage = escapeHtml(message).replaceAll("\n", "<br />");
 
   const submittedAt = new Date().toISOString();
+  const submittedAtLocal = new Date(submittedAt).toLocaleString("de-DE", {
+    dateStyle: "medium",
+    timeStyle: "short",
+    timeZone: "Europe/Berlin"
+  });
   const text = [
     "NEUE KONTAKTANFRAGE",
-    "===================",
+    "====================",
     "",
-    "KONTAKT",
-    `- Name: ${name}`,
-    `- E-Mail: ${email}`,
-    `- Unternehmen: ${company}`,
+    "ABSENDER",
+    `Name: ${name}`,
+    `E-Mail: ${email}`,
+    `Unternehmen: ${company}`,
     "",
     "METADATEN",
-    `- Empfänger: ${toEmail}`,
-    `- Website: ${siteUrl}`,
-    `- Eingegangen (UTC): ${submittedAt}`,
+    `Empfänger: ${toEmail}`,
+    `Website: ${siteUrl}`,
+    `Eingegangen (Berlin): ${submittedAtLocal}`,
+    `Eingegangen (UTC): ${submittedAt}`,
     "",
-    "Nachricht:",
+    "NACHRICHT",
+    "---------",
     message,
     ""
   ].join("\n");
@@ -135,31 +142,47 @@ module.exports = async function handler(req, res) {
       subject,
       text,
       html: `
-        <div style="font-family: Inter, Arial, sans-serif; color: #14171f; line-height: 1.5; max-width: 680px;">
-          <h1 style="font-size: 20px; margin: 0 0 14px 0;">Neue Kontaktanfrage</h1>
-          <table style="width: 100%; border-collapse: collapse; margin: 0 0 18px 0;">
-            <tbody>
-              <tr>
-                <td style="width: 170px; padding: 8px 10px; background: #f4f6fb; border: 1px solid #dce2f2;"><strong>Name</strong></td>
-                <td style="padding: 8px 10px; border: 1px solid #dce2f2;">${safeName}</td>
-              </tr>
-              <tr>
-                <td style="width: 170px; padding: 8px 10px; background: #f4f6fb; border: 1px solid #dce2f2;"><strong>E-Mail</strong></td>
-                <td style="padding: 8px 10px; border: 1px solid #dce2f2;">${safeEmail}</td>
-              </tr>
-              <tr>
-                <td style="width: 170px; padding: 8px 10px; background: #f4f6fb; border: 1px solid #dce2f2;"><strong>Unternehmen</strong></td>
-                <td style="padding: 8px 10px; border: 1px solid #dce2f2;">${safeCompany}</td>
-              </tr>
-              <tr>
-                <td style="width: 170px; padding: 8px 10px; background: #f4f6fb; border: 1px solid #dce2f2;"><strong>Eingegangen</strong></td>
-                <td style="padding: 8px 10px; border: 1px solid #dce2f2;">${escapeHtml(submittedAt)} (UTC)</td>
-              </tr>
-            </tbody>
-          </table>
-          <h2 style="font-size: 16px; margin: 0 0 8px 0;">Nachricht</h2>
-          <div style="padding: 12px 14px; border: 1px solid #dce2f2; background: #fbfcff; border-radius: 8px;">${safeMessage}</div>
-          <p style="margin-top: 20px; color: #697182; font-size: 13px;">Gesendet über ${escapeHtml(siteUrl)}</p>
+        <div style="font-family: Inter, Arial, sans-serif; color: #14171f; line-height: 1.5; max-width: 720px; margin: 0 auto; background: #f7f8fb; padding: 24px;">
+          <div style="background: linear-gradient(145deg, #001e73 0%, #002fa7 100%); color: #ffffff; border-radius: 14px 14px 0 0; padding: 18px 22px;">
+            <div style="font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.82; margin-bottom: 6px;">Augmentis Systems</div>
+            <h1 style="font-size: 24px; line-height: 1.2; margin: 0;">Neue Kontaktanfrage</h1>
+          </div>
+
+          <div style="background: #ffffff; border: 1px solid #dce2f2; border-top: none; border-radius: 0 0 14px 14px; overflow: hidden;">
+            <div style="padding: 22px;">
+              <table style="width: 100%; border-collapse: separate; border-spacing: 0; margin: 0 0 20px 0;">
+                <tbody>
+                  <tr>
+                    <td style="width: 170px; padding: 10px 12px; background: #f4f6fb; border: 1px solid #dce2f2; font-weight: 700;">Name</td>
+                    <td style="padding: 10px 12px; border: 1px solid #dce2f2; border-left: none;">${safeName}</td>
+                  </tr>
+                  <tr>
+                    <td style="width: 170px; padding: 10px 12px; background: #f4f6fb; border: 1px solid #dce2f2; border-top: none; font-weight: 700;">E-Mail</td>
+                    <td style="padding: 10px 12px; border: 1px solid #dce2f2; border-left: none; border-top: none;">
+                      <a href="mailto:${safeEmail}" style="color: #002fa7; text-decoration: none;">${safeEmail}</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="width: 170px; padding: 10px 12px; background: #f4f6fb; border: 1px solid #dce2f2; border-top: none; font-weight: 700;">Unternehmen</td>
+                    <td style="padding: 10px 12px; border: 1px solid #dce2f2; border-left: none; border-top: none;">${safeCompany}</td>
+                  </tr>
+                  <tr>
+                    <td style="width: 170px; padding: 10px 12px; background: #f4f6fb; border: 1px solid #dce2f2; border-top: none; font-weight: 700;">Eingegangen</td>
+                    <td style="padding: 10px 12px; border: 1px solid #dce2f2; border-left: none; border-top: none;">${escapeHtml(submittedAtLocal)} Uhr (Berlin)<br /><span style="color: #697182; font-size: 12px;">${escapeHtml(submittedAt)} UTC</span></td>
+                  </tr>
+                  <tr>
+                    <td style="width: 170px; padding: 10px 12px; background: #f4f6fb; border: 1px solid #dce2f2; border-top: none; font-weight: 700;">Website</td>
+                    <td style="padding: 10px 12px; border: 1px solid #dce2f2; border-left: none; border-top: none;">
+                      <a href="${escapeHtml(siteUrl)}" style="color: #002fa7; text-decoration: none;">${escapeHtml(siteUrl)}</a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <div style="margin: 0 0 8px 0; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #697182; font-weight: 700;">Nachricht</div>
+              <div style="padding: 16px 18px; border: 1px solid #dce2f2; background: #fbfcff; border-radius: 10px; white-space: normal;">${safeMessage}</div>
+            </div>
+          </div>
         </div>
       `
     })

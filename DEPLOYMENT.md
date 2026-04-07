@@ -22,6 +22,7 @@ Siehe `.env.example`:
 1. Neues Projekt in Vercel mit diesem Ordner als Root anlegen.
 2. Als Build Command `npm run build` verwenden; damit wird `assets/css/tailwind-built.css` bei jedem Deploy neu erzeugt.
 3. Die vier Umgebungsvariablen in `Production`, `Preview` und bei Bedarf `Development` setzen.
+   `CONTACT_TO_EMAIL` sollte auf `talha@augmentis-systems.com` gesetzt werden.
 4. Die Domain `augmentis-systems.com` hinzufügen.
 5. `www.augmentis-systems.com` ebenfalls hinzufügen; der Redirect auf die Apex-Domain erfolgt über `vercel.json`.
 6. Nach dem ersten Deploy die Absenderdomain für Resend verifizieren, damit `CONTACT_FROM_EMAIL` zugestellt werden kann.
